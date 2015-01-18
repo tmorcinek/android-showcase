@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Android Showcase</string>
-    <string name="author_text">Created by:\nTomasz Morcinek</string>
-    <string name="author_application_button">Go to Application</string>
+    <string name="splash_text">Created by:\nTomasz Morcinek</string>
+    <string name="splash_application_button">Go to Application</string>
 
 </resources>
