@@ -10,4 +10,6 @@
     <!-- general text colors -->
     <color name="text">#212121</color>
     <color name="textWhite">#FFFFFF</color>
+
+    <color name="cardsColor">#FAFAFA</color>
 </resources>
