@@ -5,10 +5,18 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.google.gson.Gson;
+import com.morcinek.showcase.network.NetworkFacade;
+import com.morcinek.showcase.network.ProductionNetworkFacade;
+import com.morcinek.showcase.network.api.ApiService;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import retrofit.RestAdapter;
+import retrofit.android.AndroidLog;
+import retrofit.converter.GsonConverter;
 
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
@@ -30,7 +38,18 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    SharedPreferences provideSharedPreferences() {
-        return PreferenceManager.getDefaultSharedPreferences(application);
+    ApiService provideApiService() {
+        RestAdapter restAdapter = new RestAdapter.Builder()
+                .setEndpoint("http://portfolio-morcinek.rhcloud.com/api")
+                .setConverter(new GsonConverter(new Gson()))
+                .setLogLevel(RestAdapter.LogLevel.FULL).setLog(new AndroidLog("Retrofit"))  // just for debugging purposes
+                .build();
+        return restAdapter.create(ApiService.class);
+    }
+
+    @Provides
+    @Singleton
+    NetworkFacade provideNetworkFacade(ApiService apiService) {
+        return new ProductionNetworkFacade(apiService);
     }
 }
