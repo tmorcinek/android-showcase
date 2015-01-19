@@ -1,6 +1,8 @@
 package com.morcinek.showcase.dagger.configuration;
 
 import com.morcinek.showcase.dagger.activity.ShowcaseActivity;
+import com.morcinek.showcase.home.HomeActivity;
+import com.morcinek.showcase.splash.SplashActivity;
 
 import dagger.Module;
 
@@ -9,6 +11,7 @@ import dagger.Module;
  */
 @Module(
         injects = {
+                HomeActivity.class,
         },
         addsTo = ApplicationModule.class,
         library = true
