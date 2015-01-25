@@ -5,9 +5,13 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ListView;
 
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.dagger.activity.ShowcaseActivity;
+import com.morcinek.showcase.home.navigation.FragmentController;
+import com.morcinek.showcase.home.navigation.ToolbarDrawerToggleController;
 
 public class HomeActivity extends ShowcaseActivity {
 
@@ -25,7 +29,7 @@ public class HomeActivity extends ShowcaseActivity {
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
+        drawerToggle = new ToolbarDrawerToggleController(this, drawerLayout, toolbar);
         drawerLayout.setDrawerListener(drawerToggle);
     }
 

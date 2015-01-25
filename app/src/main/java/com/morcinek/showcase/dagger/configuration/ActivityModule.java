@@ -2,6 +2,7 @@ package com.morcinek.showcase.dagger.configuration;
 
 import android.content.Context;
 
+import com.morcinek.showcase.author.AuthorFragment;
 import com.morcinek.showcase.dagger.activity.ShowcaseActivity;
 import com.morcinek.showcase.general.ToastErrorHandler;
 import com.morcinek.showcase.home.HomeActivity;
@@ -9,6 +10,7 @@ import com.morcinek.showcase.network.NetworkFacade;
 import com.morcinek.showcase.network.ProductionNetworkFacade;
 import com.morcinek.showcase.network.api.ApiService;
 import com.morcinek.showcase.network.error.ErrorHandler;
+import com.morcinek.showcase.network.model.Author;
 import com.morcinek.showcase.splash.SplashActivity;
 
 import javax.inject.Singleton;
@@ -22,6 +24,7 @@ import dagger.Provides;
 @Module(
         injects = {
                 HomeActivity.class,
+                AuthorFragment.class,
         },
         addsTo = ApplicationModule.class,
         library = true
@@ -35,7 +38,7 @@ public class ActivityModule {
     }
 
     @Provides
-    ErrorHandler provideErrorHandler(Context context) {
-        return new ToastErrorHandler(context);
+    ErrorHandler provideErrorHandler() {
+        return new ToastErrorHandler(showcaseActivity);
     }
 }

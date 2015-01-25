@@ -1,2 +1,18 @@
 <resources>
+    <style name="HeaderText">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primaryDarkColor</item>
+    </style>
+
+    <style name="SectionHeader" parent="HeaderText">
+        <item name="android:layout_marginTop">@dimen/text_margin</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="DefaultText">
+        <item name="android:paddingLeft">@dimen/text_margin</item>
+        <item name="android:paddingRight">@dimen/text_margin</item>
+        <item name="android:textSize">15sp</item>
+    </style>
 </resources>
