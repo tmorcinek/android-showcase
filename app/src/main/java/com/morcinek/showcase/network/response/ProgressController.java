@@ -7,5 +7,5 @@ public interface ProgressController {
 
     void preExecute();
 
-    void postExecute();
+    void postExecuteWithSuccess(boolean success);
 }

@@ -34,10 +34,10 @@ class NetworkCallback<T> implements Callback<T> {
         }
     }
 
-    private void postExecute() {
+    private void postExecuteWithSuccess(boolean success) {
         if (progressControllers != null) {
             for (ProgressController progressController : progressControllers) {
-                progressController.postExecute();
+                progressController.postExecuteWithSuccess(success);
             }
         }
     }
@@ -48,7 +48,7 @@ class NetworkCallback<T> implements Callback<T> {
             @Override
             public void run() {
                 responseListener.success(object);
-                postExecute();
+                postExecuteWithSuccess(true);
             }
         });
     }
@@ -59,7 +59,7 @@ class NetworkCallback<T> implements Callback<T> {
             @Override
             public void run() {
                 responseListener.failure(error);
-                postExecute();
+                postExecuteWithSuccess(false);
             }
         });
     }

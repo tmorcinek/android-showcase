@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- theme colors -->
-    <color name="primaryColor" >#2196F3</color>
-    <color name="primaryDarkColor" >#0D47A1</color>
-    <color name="accentColor" >#F44336</color>
-    <color name="backgroundColor" >#FFFFFF</color>
+    <color name="primaryColor">#2196F3</color>
+    <color name="primaryDarkColor">#0D47A1</color>
+    <color name="accentColor">#F44336</color>
+    <color name="backgroundColor">#FFFFFF</color>
     <color name="divider">#DADADA</color>
 
     <!-- general text colors -->
-    <color name="text">#212121</color>
+    <color name="text">#212121</color>`
     <color name="textWhite">#FFFFFF</color>
 
     <color name="cardsColor">#FAFAFA</color>
+    <color name="retryLayoutColor">#323232</color>
+    <color name="retryLayoutSelectedColor">#474747</color>
+    <color name="retryTextColor">#FFCF00</color>
 </resources>

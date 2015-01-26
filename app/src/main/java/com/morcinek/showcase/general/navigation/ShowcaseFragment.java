@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.morcinek.showcase.R;
 import com.morcinek.showcase.dagger.activity.ShowcaseActivity;
 
 /**
@@ -26,6 +27,15 @@ public abstract class ShowcaseFragment extends Fragment implements ToolbarHost {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(getLayoutResourceId(), null);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        getActivity().setTitle(getTitle());
+        if (getColor() != null) {
+            getActivity().findViewById(R.id.toolbar).setBackgroundColor(getResources().getColor(getColor()));
+        }
     }
 
     @Override

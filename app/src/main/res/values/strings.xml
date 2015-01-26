@@ -9,5 +9,6 @@
     <string name="author_title">About Me</string>
     <string name="description_header">MY DESCRIPTION</string>
     <string name="email_header">MY EMAIL</string>
+    <string name="retry">RETRY</string>
 
 </resources>

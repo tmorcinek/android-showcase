@@ -6,4 +6,6 @@
     <dimen name="text_margin">8dp</dimen>
 
     <dimen name="button_elevation">4dp</dimen>
+
+    <dimen name="item_height">48dp</dimen>
 </resources>
