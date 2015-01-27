@@ -1,13 +1,13 @@
-package com.morcinek.showcase.network;
+package com.morcinek.showcase.general.network;
 
 
-import com.morcinek.showcase.network.api.ApiService;
-import com.morcinek.showcase.network.model.Author;
-import com.morcinek.showcase.network.model.Education;
-import com.morcinek.showcase.network.model.Experience;
-import com.morcinek.showcase.network.model.Skill;
-import com.morcinek.showcase.network.response.NetworkResponseListener;
-import com.morcinek.showcase.network.response.ProgressController;
+import com.morcinek.showcase.general.network.api.ApiService;
+import com.morcinek.showcase.general.network.model.Author;
+import com.morcinek.showcase.general.network.model.Education;
+import com.morcinek.showcase.general.network.model.Experience;
+import com.morcinek.showcase.general.network.model.Skill;
+import com.morcinek.showcase.general.network.response.NetworkResponseListener;
+import com.morcinek.showcase.general.network.response.ProgressController;
 
 import java.util.List;
 

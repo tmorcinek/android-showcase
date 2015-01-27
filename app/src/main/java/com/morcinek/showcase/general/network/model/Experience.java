@@ -1,4 +1,4 @@
-package com.morcinek.showcase.network.model;
+package com.morcinek.showcase.general.network.model;
 
 /**
  * Copyright 2015 Tomasz Morcinek. All rights reserved.

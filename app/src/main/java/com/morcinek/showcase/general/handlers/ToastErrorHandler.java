@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.network.error.ErrorHandler;
+import com.morcinek.showcase.general.network.error.ErrorHandler;
 
 import retrofit.RetrofitError;
 

@@ -1,4 +1,4 @@
-package com.morcinek.showcase.network.model;
+package com.morcinek.showcase.general.network.model;
 
 import java.util.List;
 

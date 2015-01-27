@@ -8,7 +8,7 @@ import com.morcinek.showcase.general.controllers.RefreshProgressController;
 import com.morcinek.showcase.general.handlers.RetryLayoutErrorHandler;
 import com.morcinek.showcase.general.handlers.ToastErrorHandler;
 import com.morcinek.showcase.home.HomeActivity;
-import com.morcinek.showcase.network.error.ErrorHandler;
+import com.morcinek.showcase.general.network.error.ErrorHandler;
 
 import dagger.Module;
 import dagger.Provides;

@@ -1,9 +1,9 @@
-package com.morcinek.showcase.network;
+package com.morcinek.showcase.general.network;
 
 import android.os.Handler;
 
-import com.morcinek.showcase.network.response.NetworkResponseListener;
-import com.morcinek.showcase.network.response.ProgressController;
+import com.morcinek.showcase.general.network.response.NetworkResponseListener;
+import com.morcinek.showcase.general.network.response.ProgressController;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;

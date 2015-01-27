@@ -6,7 +6,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.network.error.ErrorHandler;
+import com.morcinek.showcase.general.network.error.ErrorHandler;
 
 import retrofit.RetrofitError;
 

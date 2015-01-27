@@ -1,4 +1,4 @@
-package com.morcinek.showcase.network.response;
+package com.morcinek.showcase.general.network.response;
 
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.

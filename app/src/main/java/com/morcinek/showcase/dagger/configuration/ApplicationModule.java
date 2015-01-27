@@ -2,13 +2,11 @@ package com.morcinek.showcase.dagger.configuration;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
 import com.google.gson.Gson;
-import com.morcinek.showcase.network.NetworkFacade;
-import com.morcinek.showcase.network.ProductionNetworkFacade;
-import com.morcinek.showcase.network.api.ApiService;
+import com.morcinek.showcase.general.network.NetworkFacade;
+import com.morcinek.showcase.general.network.ProductionNetworkFacade;
+import com.morcinek.showcase.general.network.api.ApiService;
 
 import javax.inject.Singleton;
 

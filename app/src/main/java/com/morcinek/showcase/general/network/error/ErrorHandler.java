@@ -1,4 +1,4 @@
-package com.morcinek.showcase.network.error;
+package com.morcinek.showcase.general.network.error;
 
 import retrofit.RetrofitError;
 

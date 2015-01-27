@@ -16,9 +16,9 @@ import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
 import com.morcinek.showcase.dagger.components.ShowcaseFragment;
 import com.morcinek.showcase.general.controllers.RefreshProgressController;
 import com.morcinek.showcase.general.handlers.RetryLayoutErrorHandler;
-import com.morcinek.showcase.network.NetworkFacade;
-import com.morcinek.showcase.network.model.Education;
-import com.morcinek.showcase.network.response.NetworkResponseListener;
+import com.morcinek.showcase.general.network.NetworkFacade;
+import com.morcinek.showcase.general.network.model.Education;
+import com.morcinek.showcase.general.network.response.NetworkResponseListener;
 
 import java.util.List;
 

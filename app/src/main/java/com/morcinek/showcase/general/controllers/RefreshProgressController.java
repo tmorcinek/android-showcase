@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.support.v4.widget.SwipeRefreshLayout;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.network.response.ProgressController;
+import com.morcinek.showcase.general.network.response.ProgressController;
 
 
 /**

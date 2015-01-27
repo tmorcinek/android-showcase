@@ -6,7 +6,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.network.response.ProgressController;
+import com.morcinek.showcase.general.network.response.ProgressController;
 
 /**
  * Copyright 2015 Tomasz Morcinek. All rights reserved.

@@ -9,9 +9,9 @@ import com.morcinek.showcase.R;
 import com.morcinek.showcase.dagger.components.ShowcaseFragment;
 import com.morcinek.showcase.general.controllers.ProgressBarController;
 import com.morcinek.showcase.general.handlers.RetryLayoutErrorHandler;
-import com.morcinek.showcase.network.NetworkFacade;
-import com.morcinek.showcase.network.model.Author;
-import com.morcinek.showcase.network.response.NetworkResponseListener;
+import com.morcinek.showcase.general.network.NetworkFacade;
+import com.morcinek.showcase.general.network.model.Author;
+import com.morcinek.showcase.general.network.response.NetworkResponseListener;
 
 import javax.inject.Inject;
 
