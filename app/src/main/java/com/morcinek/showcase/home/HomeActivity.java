@@ -7,7 +7,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.dagger.components.ShowcaseActivity;
+import com.morcinek.showcase.general.dagger.components.ShowcaseActivity;
 import com.morcinek.showcase.home.navigation.ToolbarDrawerToggleController;
 
 public class HomeActivity extends ShowcaseActivity {

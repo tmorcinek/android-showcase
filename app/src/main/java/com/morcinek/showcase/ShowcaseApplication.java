@@ -2,7 +2,7 @@ package com.morcinek.showcase;
 
 import android.app.Application;
 
-import com.morcinek.showcase.dagger.configuration.ApplicationModule;
+import com.morcinek.showcase.general.dagger.configuration.ApplicationModule;
 
 import java.util.Arrays;
 import java.util.List;

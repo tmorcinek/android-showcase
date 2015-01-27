@@ -1,4 +1,4 @@
-package com.morcinek.showcase.dagger.components;
+package com.morcinek.showcase.general.dagger.components;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

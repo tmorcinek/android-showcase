@@ -1,4 +1,4 @@
-package com.morcinek.showcase.dagger.configuration;
+package com.morcinek.showcase.general.dagger.configuration;
 
 import android.app.Application;
 import android.content.Context;

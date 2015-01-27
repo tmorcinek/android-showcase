@@ -1,10 +1,10 @@
-package com.morcinek.showcase.dagger.components;
+package com.morcinek.showcase.general.dagger.components;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
 import com.morcinek.showcase.ShowcaseApplication;
-import com.morcinek.showcase.dagger.configuration.ActivityModule;
+import com.morcinek.showcase.general.dagger.configuration.ActivityModule;
 
 import java.util.Arrays;
 import java.util.List;
