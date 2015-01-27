@@ -1,6 +1,7 @@
 package com.morcinek.showcase.general.dagger.configuration;
 
 import com.morcinek.showcase.author.AuthorFragment;
+import com.morcinek.showcase.education.EducationDetailsFragment;
 import com.morcinek.showcase.general.dagger.components.ShowcaseActivity;
 import com.morcinek.showcase.education.EducationListFragment;
 import com.morcinek.showcase.general.controllers.ProgressBarController;
@@ -21,6 +22,7 @@ import dagger.Provides;
                 HomeActivity.class,
                 AuthorFragment.class,
                 EducationListFragment.class,
+                EducationDetailsFragment.class,
         },
         addsTo = ApplicationModule.class,
         library = true

@@ -12,4 +12,5 @@
     <string name="retry">RETRY</string>
 
     <string name="education_list_title">Education List</string>
+    <string name="education_details_title">Education Details</string>
 </resources>
