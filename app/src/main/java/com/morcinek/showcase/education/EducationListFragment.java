@@ -26,7 +26,7 @@ import javax.inject.Inject;
 
 import retrofit.RetrofitError;
 
-public class EducationListFragment extends ShowcaseFragment implements NetworkResponseListener<List<Education>>, SwipeRefreshLayout.OnRefreshListener, AbstractRecyclerViewAdapter.OnItemClickListener<Education> {
+public class EducationListFragment extends ShowcaseFragment implements NetworkResponseListener<List<Education>>, SwipeRefreshLayout.OnRefreshListener, AbstractRecyclerViewAdapter.OnItemClickListener<Education>, View.OnClickListener {
 
     @Inject
     NetworkFacade networkFacade;
@@ -53,6 +53,8 @@ public class EducationListFragment extends ShowcaseFragment implements NetworkRe
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        view.findViewById(R.id.retry_layout).setOnClickListener(this);
+
         setupRecyclerView();
         setupSwipeRefreshLayout();
     }
@@ -60,6 +62,11 @@ public class EducationListFragment extends ShowcaseFragment implements NetworkRe
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         onRefresh();
     }
 
@@ -80,6 +87,7 @@ public class EducationListFragment extends ShowcaseFragment implements NetworkRe
 
     @Override
     public void success(List<Education> object) {
+        errorHandler.hideErrorMessage();
         listAdapter.setList(object);
         invokeRecyclerViewAnimation();
     }
@@ -107,5 +115,11 @@ public class EducationListFragment extends ShowcaseFragment implements NetworkRe
     @Override
     public void onRefresh() {
         networkFacade.getEducation(this, progressController);
+    }
+
+    @Override
+    public void onClick(View v) {
+        errorHandler.hideErrorMessage();
+        onRefresh();
     }
 }
