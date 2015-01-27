@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.general.dagger.components.ShowcaseFragment;
+import com.morcinek.showcase.general.navigation.ToolbarHostFragment;
 import com.morcinek.showcase.general.controllers.ProgressBarController;
 import com.morcinek.showcase.general.handlers.RetryLayoutErrorHandler;
 import com.morcinek.showcase.general.network.NetworkFacade;
@@ -17,7 +17,7 @@ import javax.inject.Inject;
 
 import retrofit.RetrofitError;
 
-public class AuthorFragment extends ShowcaseFragment implements NetworkResponseListener<Author>, View.OnClickListener {
+public class AuthorFragment extends ToolbarHostFragment implements NetworkResponseListener<Author>, View.OnClickListener {
 
     @Inject
     NetworkFacade networkFacade;

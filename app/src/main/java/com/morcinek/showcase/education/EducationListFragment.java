@@ -13,7 +13,7 @@ import android.view.animation.LayoutAnimationController;
 
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
-import com.morcinek.showcase.general.dagger.components.ShowcaseFragment;
+import com.morcinek.showcase.general.navigation.ToolbarHostFragment;
 import com.morcinek.showcase.general.controllers.RefreshProgressController;
 import com.morcinek.showcase.general.handlers.RetryLayoutErrorHandler;
 import com.morcinek.showcase.general.network.NetworkFacade;
@@ -26,7 +26,7 @@ import javax.inject.Inject;
 
 import retrofit.RetrofitError;
 
-public class EducationListFragment extends ShowcaseFragment implements NetworkResponseListener<List<Education>>, SwipeRefreshLayout.OnRefreshListener, AbstractRecyclerViewAdapter.OnItemClickListener<Education>, View.OnClickListener {
+public class EducationListFragment extends ToolbarHostFragment implements NetworkResponseListener<List<Education>>, SwipeRefreshLayout.OnRefreshListener, AbstractRecyclerViewAdapter.OnItemClickListener<Education>, View.OnClickListener {
 
     @Inject
     NetworkFacade networkFacade;

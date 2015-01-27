@@ -1,4 +1,4 @@
-package com.morcinek.showcase.general.dagger.components;
+package com.morcinek.showcase.general.navigation;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,12 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.general.navigation.ToolbarHost;
+import com.morcinek.showcase.general.dagger.components.ShowcaseActivity;
 
 /**
  * Copyright 2015 Tomasz Morcinek. All rights reserved.
  */
-public abstract class ShowcaseFragment extends Fragment implements ToolbarHost {
+public abstract class ToolbarHostFragment extends Fragment implements ToolbarHost {
 
     protected abstract int getLayoutResourceId();
 
