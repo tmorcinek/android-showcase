@@ -7,8 +7,8 @@ import android.widget.TextView;
 
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.dagger.components.ShowcaseFragment;
-import com.morcinek.showcase.general.network.ProgressBarController;
-import com.morcinek.showcase.general.network.RetryLayoutErrorHandler;
+import com.morcinek.showcase.general.controllers.ProgressBarController;
+import com.morcinek.showcase.general.handlers.RetryLayoutErrorHandler;
 import com.morcinek.showcase.network.NetworkFacade;
 import com.morcinek.showcase.network.model.Author;
 import com.morcinek.showcase.network.response.NetworkResponseListener;

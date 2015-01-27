@@ -3,10 +3,10 @@ package com.morcinek.showcase.dagger.configuration;
 import com.morcinek.showcase.author.AuthorFragment;
 import com.morcinek.showcase.dagger.components.ShowcaseActivity;
 import com.morcinek.showcase.education.EducationListFragment;
-import com.morcinek.showcase.general.network.ProgressBarController;
-import com.morcinek.showcase.general.network.RefreshProgressController;
-import com.morcinek.showcase.general.network.RetryLayoutErrorHandler;
-import com.morcinek.showcase.general.network.ToastErrorHandler;
+import com.morcinek.showcase.general.controllers.ProgressBarController;
+import com.morcinek.showcase.general.controllers.RefreshProgressController;
+import com.morcinek.showcase.general.handlers.RetryLayoutErrorHandler;
+import com.morcinek.showcase.general.handlers.ToastErrorHandler;
 import com.morcinek.showcase.home.HomeActivity;
 import com.morcinek.showcase.network.error.ErrorHandler;
 

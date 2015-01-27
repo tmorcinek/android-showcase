@@ -1,4 +1,4 @@
-package com.morcinek.showcase.general.network;
+package com.morcinek.showcase.general.controllers;
 
 import android.app.Activity;
 import android.view.View;

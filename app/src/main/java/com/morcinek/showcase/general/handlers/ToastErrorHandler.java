@@ -1,4 +1,4 @@
-package com.morcinek.showcase.general.network;
+package com.morcinek.showcase.general.handlers;
 
 import android.content.Context;
 import android.widget.Toast;
