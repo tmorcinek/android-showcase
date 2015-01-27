@@ -55,6 +55,7 @@ public class EducationListFragment extends ToolbarHostFragment implements Networ
 
         view.findViewById(R.id.retry_layout).setOnClickListener(this);
 
+        setupListAdapter();
         setupRecyclerView(view);
         setupSwipeRefreshLayout(view);
     }
@@ -70,19 +71,22 @@ public class EducationListFragment extends ToolbarHostFragment implements Networ
         onRefresh();
     }
 
-    private void setupSwipeRefreshLayout(View view) {
-        SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
-        swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.accentColor));
-        swipeRefreshLayout.setOnRefreshListener(this);
+    private void setupListAdapter() {
+        listAdapter = new EducationListAdapter(getActivity());
+        listAdapter.setItemClickListener(this);
     }
 
     private void setupRecyclerView(View view) {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        listAdapter = new EducationListAdapter(getActivity());
-        listAdapter.setItemClickListener(this);
         recyclerView.setAdapter(listAdapter);
+    }
+
+    private void setupSwipeRefreshLayout(View view) {
+        SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
+        swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.accentColor));
+        swipeRefreshLayout.setOnRefreshListener(this);
     }
 
     @Override

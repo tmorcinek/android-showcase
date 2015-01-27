@@ -23,8 +23,7 @@ public class EducationListAdapter extends AbstractRecyclerViewAdapter<Education,
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.education_list_item, viewGroup, false);
-        return new ViewHolder(view);
+        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.education_list_item, viewGroup, false));
     }
 
     @Override
