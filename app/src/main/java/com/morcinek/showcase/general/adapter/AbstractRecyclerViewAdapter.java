@@ -36,10 +36,6 @@ public abstract class AbstractRecyclerViewAdapter<T, H extends RecyclerView.View
         notifyItemRangeChanged(0, list.size());
     }
 
-    final public List<T> getItems() {
-        return items;
-    }
-
     @Override
     public int getItemCount() {
         return items == null ? 0 : items.size();
