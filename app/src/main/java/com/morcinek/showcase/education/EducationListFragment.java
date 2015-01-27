@@ -55,8 +55,8 @@ public class EducationListFragment extends ShowcaseFragment implements NetworkRe
 
         view.findViewById(R.id.retry_layout).setOnClickListener(this);
 
-        setupRecyclerView();
-        setupSwipeRefreshLayout();
+        setupRecyclerView(view);
+        setupSwipeRefreshLayout(view);
     }
 
     @Override
@@ -70,14 +70,14 @@ public class EducationListFragment extends ShowcaseFragment implements NetworkRe
         onRefresh();
     }
 
-    private void setupSwipeRefreshLayout() {
-        SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) getView().findViewById(R.id.swipe_refresh_layout);
+    private void setupSwipeRefreshLayout(View view) {
+        SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.accentColor));
         swipeRefreshLayout.setOnRefreshListener(this);
     }
 
-    private void setupRecyclerView() {
-        RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.recycler_view);
+    private void setupRecyclerView(View view) {
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         listAdapter = new EducationListAdapter(getActivity());
@@ -107,9 +107,7 @@ public class EducationListFragment extends ShowcaseFragment implements NetworkRe
 
     @Override
     public void onItemClicked(Education item) {
-//        Intent intent = new Intent(this, QualificationDetailsActivity.class);
-//        intent.putExtra(Qualification.class.getName(), item);
-//        startActivity(intent);
+        //TODO
     }
 
     @Override
