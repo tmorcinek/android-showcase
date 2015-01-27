@@ -30,6 +30,7 @@ public class EducationListAdapter extends AbstractRecyclerViewAdapter<Education,
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         final Education education = getItem(i);
+        initializeOnClickListener(viewHolder, education);
         viewHolder.titleView.setText(education.getUniversity());
         viewHolder.subtitleView.setText(education.getDates());
     }
