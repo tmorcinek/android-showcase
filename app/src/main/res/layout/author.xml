@@ -72,35 +72,5 @@
         <!--android:paddingBottom="@dimen/activity_vertical_margin" />-->
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/retry_layout"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/item_height"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:background="@color/retryLayoutColor"
-        android:visibility="gone"
-        android:gravity="center">
-
-        <TextView
-            android:text="@string/server_error_message"
-            android:textColor="@color/textWhite"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/retry_button"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"
-            android:gravity="center"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:text="@string/retry"
-            android:textSize="16sp"
-            android:textColor="@color/retryTextColor"
-            android:background="@drawable/retry_button_background"/>
-    </LinearLayout>
+    <include layout="@layout/retry_layout"/>
 </RelativeLayout>

@@ -2,34 +2,25 @@ package com.morcinek.showcase.network.model;
 
 import java.util.List;
 
+import lombok.Getter;
+
 /**
  * Copyright 2015 Tomasz Morcinek. All rights reserved.
  */
 public class Author {
 
+    @Getter
     private String name;
+
+    @Getter
     private String description;
+
+    @Getter
     private String email;
+
+    @Getter
     private List<String> telephones;
+
+    @Getter
     private List<Link> links;
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public List<String> getTelephones() {
-        return telephones;
-    }
-
-    public List<Link> getLinks() {
-        return links;
-    }
 }

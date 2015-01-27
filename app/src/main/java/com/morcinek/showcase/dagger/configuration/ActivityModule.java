@@ -2,7 +2,9 @@ package com.morcinek.showcase.dagger.configuration;
 
 import com.morcinek.showcase.author.AuthorFragment;
 import com.morcinek.showcase.dagger.activity.ShowcaseActivity;
+import com.morcinek.showcase.education.EducationListFragment;
 import com.morcinek.showcase.general.network.ProgressBarController;
+import com.morcinek.showcase.general.network.RefreshProgressController;
 import com.morcinek.showcase.general.network.RetryLayoutErrorHandler;
 import com.morcinek.showcase.general.network.ToastErrorHandler;
 import com.morcinek.showcase.home.HomeActivity;
@@ -18,6 +20,7 @@ import dagger.Provides;
         injects = {
                 HomeActivity.class,
                 AuthorFragment.class,
+                EducationListFragment.class,
         },
         addsTo = ApplicationModule.class,
         library = true
@@ -43,5 +46,10 @@ public class ActivityModule {
     @Provides
     ProgressBarController provideProgressBarController() {
         return new ProgressBarController(showcaseActivity);
+    }
+
+    @Provides
+    RefreshProgressController provideRefreshProgressController() {
+        return new RefreshProgressController(showcaseActivity);
     }
 }
