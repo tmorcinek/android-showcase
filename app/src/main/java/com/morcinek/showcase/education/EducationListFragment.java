@@ -13,7 +13,7 @@ import android.view.animation.LayoutAnimationController;
 
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
-import com.morcinek.showcase.general.navigation.ShowcaseFragment;
+import com.morcinek.showcase.dagger.components.ShowcaseFragment;
 import com.morcinek.showcase.general.network.RefreshProgressController;
 import com.morcinek.showcase.general.network.RetryLayoutErrorHandler;
 import com.morcinek.showcase.network.NetworkFacade;

@@ -1,7 +1,7 @@
 package com.morcinek.showcase.dagger.configuration;
 
 import com.morcinek.showcase.author.AuthorFragment;
-import com.morcinek.showcase.dagger.activity.ShowcaseActivity;
+import com.morcinek.showcase.dagger.components.ShowcaseActivity;
 import com.morcinek.showcase.education.EducationListFragment;
 import com.morcinek.showcase.general.network.ProgressBarController;
 import com.morcinek.showcase.general.network.RefreshProgressController;

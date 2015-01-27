@@ -1,4 +1,4 @@
-package com.morcinek.showcase.general.navigation;
+package com.morcinek.showcase.dagger.components;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.dagger.activity.ShowcaseActivity;
+import com.morcinek.showcase.general.navigation.ToolbarHost;
 
 /**
  * Copyright 2015 Tomasz Morcinek. All rights reserved.

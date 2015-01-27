@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.general.navigation.ShowcaseFragment;
+import com.morcinek.showcase.dagger.components.ShowcaseFragment;
 import com.morcinek.showcase.general.network.ProgressBarController;
 import com.morcinek.showcase.general.network.RetryLayoutErrorHandler;
 import com.morcinek.showcase.network.NetworkFacade;
@@ -28,10 +28,6 @@ public class AuthorFragment extends ShowcaseFragment implements NetworkResponseL
     @Inject
     ProgressBarController progressBarController;
 
-    private TextView name;
-    private TextView description;
-    private TextView email;
-
     @Override
     protected int getLayoutResourceId() {
         return R.layout.author;
@@ -51,9 +47,6 @@ public class AuthorFragment extends ShowcaseFragment implements NetworkResponseL
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        name = (TextView) view.findViewById(R.id.name);
-        description = (TextView) view.findViewById(R.id.description);
-        email = (TextView) view.findViewById(R.id.email);
         view.findViewById(R.id.retry_layout).setOnClickListener(this);
     }
 
@@ -66,9 +59,15 @@ public class AuthorFragment extends ShowcaseFragment implements NetworkResponseL
     @Override
     public void success(Author object) {
         errorHandler.hideErrorMessage();
-        name.setText(object.getName());
-        description.setText(object.getDescription());
-        email.setText(object.getEmail());
+        setupTextViewWithText(R.id.name, object.getName());
+        setupTextViewWithText(R.id.description, object.getDescription());
+        setupTextViewWithText(R.id.email, object.getEmail());
+    }
+
+    private void setupTextViewWithText(int resourceName, String value) {
+        if (getView() != null) {
+            ((TextView) getView().findViewById(resourceName)).setText(value);
+        }
     }
 
     @Override
