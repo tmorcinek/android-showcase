@@ -17,4 +17,5 @@
     <string name="content_description">list_item_image</string>
 
     <string name="experience_list_title">Experience</string>
+    <string name="skills_list_title">Skills</string>
 </resources>

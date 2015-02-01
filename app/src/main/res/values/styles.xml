@@ -19,11 +19,11 @@
     <style name="ListItemTitle">
         <item name="android:textSize">19sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/primaryDarkColor</item>
+        <item name="android:textColor">@color/primary_dark_text_color</item>
     </style>
 
     <style name="ListItemSubtitle">
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/accentColor</item>
+        <item name="android:textColor">@color/accent_text_color</item>
     </style>
 </resources>
