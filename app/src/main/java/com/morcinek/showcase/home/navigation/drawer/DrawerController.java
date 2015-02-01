@@ -10,6 +10,7 @@ import android.widget.ListView;
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.author.AuthorFragment;
 import com.morcinek.showcase.education.EducationListFragment;
+import com.morcinek.showcase.experience.ExperienceListFragment;
 import com.morcinek.showcase.general.dagger.components.ShowcaseActivity;
 
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class DrawerController implements AdapterView.OnItemClickListener {
         ArrayList<DrawerItem> drawerItems = new ArrayList<>();
         drawerItems.add(new DrawerItem(R.string.author_title, new AuthorFragment()));
         drawerItems.add(new DrawerItem(R.string.education_list_title, new EducationListFragment()));
+        drawerItems.add(new DrawerItem(R.string.experience_list_title, new ExperienceListFragment()));
         return drawerItems;
     }
 
