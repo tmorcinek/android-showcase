@@ -11,8 +11,10 @@
     <string name="email_header">MY EMAIL</string>
     <string name="retry">RETRY</string>
 
-    <string name="education_list_title">Education List</string>
+    <string name="education_list_title">Education</string>
     <string name="education_details_title">Education Details</string>
+
     <string name="content_description">list_item_image</string>
+
     <string name="experience_list_title">Experience</string>
 </resources>
