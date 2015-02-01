@@ -13,4 +13,5 @@
 
     <string name="education_list_title">Education List</string>
     <string name="education_details_title">Education Details</string>
+    <string name="content_description">list_item_image</string>
 </resources>

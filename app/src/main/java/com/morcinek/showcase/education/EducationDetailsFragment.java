@@ -37,7 +37,6 @@ public class EducationDetailsFragment extends ToolbarHostFragment implements Vie
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         Bundle arguments = getArguments();
         if (arguments != null) {
             education = arguments.getParcelable(Education.class.getName());

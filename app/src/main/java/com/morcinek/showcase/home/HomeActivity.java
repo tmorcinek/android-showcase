@@ -1,5 +1,6 @@
 package com.morcinek.showcase.home;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -9,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.general.dagger.components.ShowcaseActivity;
 import com.morcinek.showcase.home.navigation.ToolbarDrawerToggleController;
+import com.morcinek.showcase.home.navigation.drawer.DrawerController;
 
 public class HomeActivity extends ShowcaseActivity {
 
@@ -28,11 +30,20 @@ public class HomeActivity extends ShowcaseActivity {
 
         drawerToggle = new ToolbarDrawerToggleController(this, drawerLayout, toolbar);
         drawerLayout.setDrawerListener(drawerToggle);
+
+        DrawerController drawerController = new DrawerController(this, drawerLayout);
+        drawerController.showDefaultFragment();
     }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        drawerToggle.onConfigurationChanged(newConfig);
     }
 }
