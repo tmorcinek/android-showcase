@@ -26,11 +26,11 @@ public class ToolbarDrawerToggleController extends ActionBarDrawerToggle {
         this.toolbar = toolbar;
     }
 
-    private int getToolbarDefaultColor() {
+    private int getToolbarDefaultColorResourceId() {
         return R.color.primaryColor;
     }
 
-    private int getToolbarDefaultTitle() {
+    private int getToolbarDefaultTitleResourceId() {
         return R.string.app_name;
     }
 
@@ -41,7 +41,8 @@ public class ToolbarDrawerToggleController extends ActionBarDrawerToggle {
     @Override
     public void onDrawerOpened(View drawerView) {
         super.onDrawerOpened(drawerView);
-        activity.setTitle(getToolbarDefaultTitle());
+        activity.setTitle(getToolbarDefaultTitleResourceId());
+        toolbar.setBackgroundColor(getToolbarDefaultColor());
     }
 
     @Override
@@ -50,17 +51,28 @@ public class ToolbarDrawerToggleController extends ActionBarDrawerToggle {
         ToolbarHost toolbarUpdater = (ToolbarHost) getCurrentFragment();
         if (toolbarUpdater != null) {
             activity.setTitle(toolbarUpdater.getTitle());
+            if (toolbarUpdater.getColor() != null) {
+                toolbar.setBackgroundColor(getToolbarHostColor(toolbarUpdater));
+            } else {
+                toolbar.setBackgroundColor(getToolbarDefaultColor());
+            }
         }
     }
 
     @Override
     public void onDrawerSlide(View drawerView, float slideOffset) {
         super.onDrawerSlide(drawerView, slideOffset);
-        ToolbarHost toolbarUpdater = (ToolbarHost) getCurrentFragment();
-        if (toolbarUpdater != null && toolbarUpdater.getColor() != null) {
-            int fragmentToolbarColor = activity.getResources().getColor(toolbarUpdater.getColor());
-            int defaultToolbarColor = activity.getResources().getColor(getToolbarDefaultColor());
-            UIHelper.updateViewColor(toolbar, fragmentToolbarColor, defaultToolbarColor, slideOffset);
+        ToolbarHost toolbarHost = (ToolbarHost) getCurrentFragment();
+        if (toolbarHost != null && toolbarHost.getColor() != null) {
+            UIHelper.updateViewColor(toolbar, getToolbarHostColor(toolbarHost), getToolbarDefaultColor(), slideOffset);
         }
+    }
+
+    private int getToolbarHostColor(ToolbarHost toolbarUpdater) {
+        return activity.getResources().getColor(toolbarUpdater.getColor());
+    }
+
+    private int getToolbarDefaultColor() {
+        return activity.getResources().getColor(getToolbarDefaultColorResourceId());
     }
 }
