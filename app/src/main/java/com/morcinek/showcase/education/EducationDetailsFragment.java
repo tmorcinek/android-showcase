@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.general.navigation.ToolbarHostFragment;
+import com.morcinek.showcase.home.navigation.ToolbarHostFragment;
 import com.morcinek.showcase.general.network.model.Education;
 
 public class EducationDetailsFragment extends ToolbarHostFragment implements View.OnClickListener {

@@ -1,4 +1,4 @@
-package com.morcinek.showcase.general.navigation;
+package com.morcinek.showcase.home.navigation;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

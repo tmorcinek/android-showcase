@@ -9,7 +9,6 @@ import android.view.View;
 
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.general.helpers.UIHelper;
-import com.morcinek.showcase.general.navigation.ToolbarHost;
 
 /**
  * Copyright 2015 Tomasz Morcinek. All rights reserved.

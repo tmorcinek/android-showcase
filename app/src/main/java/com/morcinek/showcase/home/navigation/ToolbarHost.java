@@ -1,4 +1,4 @@
-package com.morcinek.showcase.general.navigation;
+package com.morcinek.showcase.home.navigation;
 
 /**
  * Copyright 2015 Tomasz Morcinek. All rights reserved.

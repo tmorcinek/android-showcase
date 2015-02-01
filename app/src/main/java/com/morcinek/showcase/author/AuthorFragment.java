@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.general.navigation.ToolbarHostFragment;
+import com.morcinek.showcase.home.navigation.ToolbarHostFragment;
 import com.morcinek.showcase.general.controllers.ProgressBarController;
 import com.morcinek.showcase.general.handlers.RetryLayoutErrorHandler;
 import com.morcinek.showcase.general.network.NetworkFacade;
