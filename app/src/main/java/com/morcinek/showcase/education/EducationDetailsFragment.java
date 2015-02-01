@@ -24,7 +24,7 @@ public class EducationDetailsFragment extends ToolbarHostFragment implements Vie
     }
 
     @Override
-    public Integer getColor() {
+    public int getColor() {
         return R.color.accentColor;
     }
 

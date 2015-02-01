@@ -5,7 +5,7 @@ package com.morcinek.showcase.home.navigation;
  */
 public interface ToolbarHost {
 
-    public Integer getColor();
+    public int getColor();
 
     public String getTitle();
 }

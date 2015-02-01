@@ -26,7 +26,7 @@ public class ToolbarDrawerToggleController extends ActionBarDrawerToggle {
     }
 
     private int getToolbarDefaultColorResourceId() {
-        return R.color.primaryColor;
+        return R.color.primaryDarkColor;
     }
 
     private int getToolbarDefaultTitleResourceId() {
@@ -50,11 +50,7 @@ public class ToolbarDrawerToggleController extends ActionBarDrawerToggle {
         ToolbarHost toolbarUpdater = (ToolbarHost) getCurrentFragment();
         if (toolbarUpdater != null) {
             activity.setTitle(toolbarUpdater.getTitle());
-            if (toolbarUpdater.getColor() != null) {
-                toolbar.setBackgroundColor(getToolbarHostColor(toolbarUpdater));
-            } else {
-                toolbar.setBackgroundColor(getToolbarDefaultColor());
-            }
+            toolbar.setBackgroundColor(getToolbarHostColor(toolbarUpdater));
         }
     }
 
@@ -62,9 +58,7 @@ public class ToolbarDrawerToggleController extends ActionBarDrawerToggle {
     public void onDrawerSlide(View drawerView, float slideOffset) {
         super.onDrawerSlide(drawerView, slideOffset);
         ToolbarHost toolbarHost = (ToolbarHost) getCurrentFragment();
-        if (toolbarHost != null && toolbarHost.getColor() != null) {
-            UIHelper.updateViewColor(toolbar, getToolbarHostColor(toolbarHost), getToolbarDefaultColor(), slideOffset);
-        }
+        UIHelper.updateViewColor(toolbar, getToolbarHostColor(toolbarHost), getToolbarDefaultColor(), slideOffset);
     }
 
     private int getToolbarHostColor(ToolbarHost toolbarUpdater) {

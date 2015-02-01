@@ -34,11 +34,6 @@ public class AuthorFragment extends ToolbarHostFragment implements NetworkRespon
     }
 
     @Override
-    public Integer getColor() {
-        return R.color.accentColor;
-    }
-
-    @Override
     public String getTitle() {
         return getString(R.string.author_title);
     }

@@ -33,13 +33,11 @@ public abstract class ToolbarHostFragment extends Fragment implements ToolbarHos
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle(getTitle());
-        if (getColor() != null) {
-            getActivity().findViewById(R.id.toolbar).setBackgroundColor(getResources().getColor(getColor()));
-        }
+        getActivity().findViewById(R.id.toolbar).setBackgroundColor(getResources().getColor(getColor()));
     }
 
     @Override
-    public Integer getColor() {
-        return null;
+    public int getColor() {
+        return R.color.primaryColor;
     }
 }
