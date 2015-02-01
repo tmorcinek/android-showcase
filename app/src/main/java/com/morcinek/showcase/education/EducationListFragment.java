@@ -1,112 +1,22 @@
 package com.morcinek.showcase.education;
 
-import android.support.annotation.Nullable;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.view.View;
-import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LayoutAnimationController;
 
 import com.morcinek.showcase.R;
+import com.morcinek.showcase.general.AbstractShowcaseListFragment;
 import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
-import com.morcinek.showcase.home.navigation.ToolbarHostFragment;
-import com.morcinek.showcase.general.controllers.RefreshProgressController;
-import com.morcinek.showcase.general.handlers.RetryLayoutErrorHandler;
-import com.morcinek.showcase.general.network.NetworkFacade;
 import com.morcinek.showcase.general.network.model.Education;
-import com.morcinek.showcase.general.network.response.NetworkResponseListener;
 
-import java.util.List;
-
-import javax.inject.Inject;
-
-import retrofit.RetrofitError;
-
-public class EducationListFragment extends ToolbarHostFragment implements NetworkResponseListener<List<Education>>, SwipeRefreshLayout.OnRefreshListener, AbstractRecyclerViewAdapter.OnItemClickListener<Education>, View.OnClickListener {
-
-    @Inject
-    NetworkFacade networkFacade;
-
-    @Inject
-    RetryLayoutErrorHandler errorHandler;
-
-    @Inject
-    RefreshProgressController progressController;
-
-    private EducationListAdapter listAdapter;
+public class EducationListFragment extends AbstractShowcaseListFragment<Education> {
 
     @Override
-    protected int getLayoutResourceId() {
-        return R.layout.education_list;
+    protected AbstractRecyclerViewAdapter<Education, ? extends RecyclerView.ViewHolder> getCreateListAdapter() {
+        return new EducationListAdapter(getActivity());
     }
 
     @Override
     public String getTitle() {
         return getString(R.string.education_list_title);
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        view.findViewById(R.id.retry_layout).setOnClickListener(this);
-
-        setupListAdapter();
-        setupRecyclerView(view);
-        setupSwipeRefreshLayout(view);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        onRefresh();
-    }
-
-    private void setupListAdapter() {
-        listAdapter = new EducationListAdapter(getActivity());
-        listAdapter.setItemClickListener(this);
-    }
-
-    private void setupRecyclerView(View view) {
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(listAdapter);
-    }
-
-    private void setupSwipeRefreshLayout(View view) {
-        SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
-        swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.accentColor));
-        swipeRefreshLayout.setOnRefreshListener(this);
-    }
-
-    @Override
-    public void success(List<Education> object) {
-        errorHandler.hideErrorMessage();
-        listAdapter.setList(object);
-        invokeRecyclerViewAnimation();
-    }
-
-    private void invokeRecyclerViewAnimation() {
-        Animation fadeInAnimation = AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_in_left);
-        fadeInAnimation.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
-        RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.recycler_view);
-        recyclerView.setLayoutAnimation(new LayoutAnimationController(fadeInAnimation));
-        recyclerView.startLayoutAnimation();
-    }
-
-    @Override
-    public void failure(RetrofitError error) {
-        errorHandler.handleError(error);
     }
 
     @Override
@@ -117,11 +27,5 @@ public class EducationListFragment extends ToolbarHostFragment implements Networ
     @Override
     public void onRefresh() {
         networkFacade.getEducation(this, progressController);
-    }
-
-    @Override
-    public void onClick(View v) {
-        errorHandler.hideErrorMessage();
-        onRefresh();
     }
 }
