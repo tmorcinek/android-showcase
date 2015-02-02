@@ -37,7 +37,9 @@ public class HomeActivity extends ShowcaseActivity {
         drawerLayout.setDrawerListener(drawerToggle);
 
         DrawerController drawerController = new DrawerController(this, homeContentController, drawerLayout);
-        drawerController.showDefaultFragment();
+        if (savedInstanceState == null) {
+            drawerController.showDefaultFragment();
+        }
     }
 
     @Override
