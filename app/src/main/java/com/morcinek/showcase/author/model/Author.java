@@ -1,4 +1,6 @@
-package com.morcinek.showcase.general.network.model;
+package com.morcinek.showcase.author.model;
+
+import com.morcinek.showcase.general.network.model.Link;
 
 import java.util.List;
 

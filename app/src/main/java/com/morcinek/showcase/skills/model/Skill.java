@@ -1,4 +1,6 @@
-package com.morcinek.showcase.general.network.model;
+package com.morcinek.showcase.skills.model;
+
+import com.morcinek.showcase.general.network.model.Link;
 
 import hrisey.Parcelable;
 import lombok.Getter;

@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.general.AbstractShowcaseListFragment;
 import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
-import com.morcinek.showcase.general.network.model.Skill;
+import com.morcinek.showcase.skills.model.Skill;
 
 public class SkillsListFragment extends AbstractShowcaseListFragment<Skill> {
 

@@ -3,11 +3,9 @@ package com.morcinek.showcase.experience;
 import android.support.v7.widget.RecyclerView;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.education.EducationListAdapter;
 import com.morcinek.showcase.general.AbstractShowcaseListFragment;
 import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
-import com.morcinek.showcase.general.network.model.Education;
-import com.morcinek.showcase.general.network.model.Experience;
+import com.morcinek.showcase.experience.model.Experience;
 
 public class ExperienceListFragment extends AbstractShowcaseListFragment<Experience> {
 

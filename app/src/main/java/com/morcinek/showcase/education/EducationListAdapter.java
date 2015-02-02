@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
-import com.morcinek.showcase.general.network.model.Education;
+import com.morcinek.showcase.education.model.Education;
 
 
 /**

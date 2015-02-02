@@ -10,7 +10,7 @@ import com.morcinek.showcase.home.navigation.ToolbarHostFragment;
 import com.morcinek.showcase.general.controllers.ProgressBarController;
 import com.morcinek.showcase.general.handlers.RetryLayoutErrorHandler;
 import com.morcinek.showcase.general.network.NetworkFacade;
-import com.morcinek.showcase.general.network.model.Author;
+import com.morcinek.showcase.author.model.Author;
 import com.morcinek.showcase.general.network.response.NetworkResponseListener;
 
 import javax.inject.Inject;
