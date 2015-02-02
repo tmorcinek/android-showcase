@@ -9,6 +9,7 @@ import com.morcinek.showcase.general.controllers.ProgressBarController;
 import com.morcinek.showcase.general.controllers.RefreshProgressController;
 import com.morcinek.showcase.general.handlers.RetryLayoutErrorHandler;
 import com.morcinek.showcase.general.handlers.ToastErrorHandler;
+import com.morcinek.showcase.home.HomeContentController;
 import com.morcinek.showcase.home.HomeActivity;
 import com.morcinek.showcase.general.network.error.ErrorHandler;
 import com.morcinek.showcase.skills.SkillsListFragment;
@@ -57,5 +58,10 @@ public class ActivityModule {
     @Provides
     RefreshProgressController provideRefreshProgressController() {
         return new RefreshProgressController(showcaseActivity);
+    }
+
+    @Provides
+    HomeContentController provideActivityContentController() {
+        return new HomeContentController(showcaseActivity);
     }
 }

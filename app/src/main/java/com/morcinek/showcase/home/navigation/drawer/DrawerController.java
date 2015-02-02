@@ -1,7 +1,6 @@
 package com.morcinek.showcase.home.navigation.drawer;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,7 +10,7 @@ import com.morcinek.showcase.R;
 import com.morcinek.showcase.author.AuthorFragment;
 import com.morcinek.showcase.education.EducationListFragment;
 import com.morcinek.showcase.experience.ExperienceListFragment;
-import com.morcinek.showcase.general.dagger.components.ShowcaseActivity;
+import com.morcinek.showcase.home.HomeContentController;
 import com.morcinek.showcase.skills.SkillsListFragment;
 
 import java.util.ArrayList;
@@ -22,20 +21,24 @@ import java.util.List;
  */
 public class DrawerController implements AdapterView.OnItemClickListener {
 
-    private final ShowcaseActivity activity;
-    private final ListView drawerListView;
+    private final HomeContentController homeContentController;
     private final DrawerLayout drawerLayout;
-    private final DrawerListAdapter drawerListAdapter;
 
-    public DrawerController(ShowcaseActivity activity, DrawerLayout drawerLayout) {
-        this.activity = activity;
+    private final ListView drawerListView;
+
+    public DrawerController(FragmentActivity activity, HomeContentController homeContentController, DrawerLayout drawerLayout) {
+        this.homeContentController = homeContentController;
         this.drawerLayout = drawerLayout;
-        this.drawerListView = (ListView) activity.findViewById(R.id.left_drawer);
 
-        drawerListAdapter = new DrawerListAdapter(this.activity);
+        drawerListView = (ListView) activity.findViewById(R.id.left_drawer);
+        drawerListView.setOnItemClickListener(this);
+        setupDrawerListAdapter(activity);
+    }
+
+    private void setupDrawerListAdapter(FragmentActivity activity) {
+        DrawerListAdapter drawerListAdapter = new DrawerListAdapter(activity);
         drawerListAdapter.setList(prepareDrawerItemList());
         drawerListView.setAdapter(drawerListAdapter);
-        drawerListView.setOnItemClickListener(this);
     }
 
     private List<DrawerItem> prepareDrawerItemList() {
@@ -47,35 +50,19 @@ public class DrawerController implements AdapterView.OnItemClickListener {
         return drawerItems;
     }
 
-    private void selectItemAtPosition(int position) {
-        Fragment fragment = getFragmentAtPosition(position);
-        FragmentManager fragmentManager = activity.getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.content_frame, fragment)
-                .commit();
+    private void selectItemAtPosition(DrawerItem drawerItem, int position) {
+        homeContentController.addFragment(drawerItem.getFragment());
 
         drawerListView.setItemChecked(position, true);
         drawerLayout.closeDrawer(drawerListView);
     }
 
-    private Fragment getFragmentAtPosition(int position) {
-        return drawerListAdapter.getItem(position).getFragment();
-    }
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        selectItemAtPosition(position);
+        selectItemAtPosition((DrawerItem) parent.getItemAtPosition(position), position);
     }
 
     public void showDefaultFragment() {
-        selectItemAtPosition(0);
-    }
-
-    public void addFragmentWithObject(Fragment fragment) {
-        FragmentManager fragmentManager = activity.getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.content_frame, fragment)
-                .addToBackStack(null)
-                .commit();
+        selectItemAtPosition((DrawerItem) drawerListView.getItemAtPosition(0), 0);
     }
 }

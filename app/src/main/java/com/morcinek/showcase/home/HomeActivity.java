@@ -12,7 +12,12 @@ import com.morcinek.showcase.general.dagger.components.ShowcaseActivity;
 import com.morcinek.showcase.home.navigation.ToolbarDrawerToggleController;
 import com.morcinek.showcase.home.navigation.drawer.DrawerController;
 
+import javax.inject.Inject;
+
 public class HomeActivity extends ShowcaseActivity {
+
+    @Inject
+    HomeContentController homeContentController;
 
     private ActionBarDrawerToggle drawerToggle;
 
@@ -31,7 +36,7 @@ public class HomeActivity extends ShowcaseActivity {
         drawerToggle = new ToolbarDrawerToggleController(this, drawerLayout, toolbar);
         drawerLayout.setDrawerListener(drawerToggle);
 
-        DrawerController drawerController = new DrawerController(this, drawerLayout);
+        DrawerController drawerController = new DrawerController(this, homeContentController, drawerLayout);
         drawerController.showDefaultFragment();
     }
 
