@@ -1,5 +1,6 @@
 package com.morcinek.showcase.home.navigation.drawer;
 
+import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
@@ -21,6 +22,8 @@ import java.util.List;
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
 public class DrawerController implements AdapterView.OnItemClickListener {
+
+    public static final int HIDE_DRAWER_LIST_DELAY_MILLIS = 150;
 
     private final HomeContentController homeContentController;
     private final DrawerLayout drawerLayout;
@@ -54,9 +57,18 @@ public class DrawerController implements AdapterView.OnItemClickListener {
 
     private void selectItemAtPosition(DrawerItem drawerItem, int position) {
         homeContentController.addFragment(drawerItem.getFragment());
-
         drawerListView.setItemChecked(position, true);
-        drawerLayout.closeDrawer(drawerListView);
+        hideDrawerWithDelay();
+    }
+
+    private void hideDrawerWithDelay() {
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerListView);
+            }
+        }, HIDE_DRAWER_LIST_DELAY_MILLIS);
     }
 
     @Override
