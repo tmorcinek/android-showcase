@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.home.navigation.ToolbarHost;
 
 /**
  * Copyright 2015 Tomasz Morcinek. All rights reserved.
@@ -24,11 +23,19 @@ public class HomeContentController {
     }
 
     public void addFragment(Fragment fragment, boolean addToBackStack) {
+        addFragment(fragment, addToBackStack, fragment.getClass().getName());
+    }
+
+    public void addFragment(Fragment fragment, String tag) {
+        addFragment(fragment, false, tag);
+    }
+
+    public void addFragment(Fragment fragment, boolean addToBackStack, String tag) {
         FragmentManager fragmentManager = activity.getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, fragment);
+        fragmentTransaction.replace(R.id.content_frame, fragment, tag);
         if (addToBackStack) {
-            fragmentTransaction.addToBackStack(((ToolbarHost) fragment).getTitle());
+            fragmentTransaction.addToBackStack(tag);
         }
         fragmentTransaction.commit();
     }
