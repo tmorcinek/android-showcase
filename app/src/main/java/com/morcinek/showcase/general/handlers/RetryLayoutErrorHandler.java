@@ -17,19 +17,22 @@ public class RetryLayoutErrorHandler implements ErrorHandler {
 
     private Activity activity;
 
+    private View retryLayout;
+
     public RetryLayoutErrorHandler(Activity activity) {
         this.activity = activity;
+        retryLayout = activity.findViewById(R.id.retry_layout);
     }
 
     @Override
     public void handleError(RetrofitError networkError) {
-        activity.findViewById(R.id.retry_layout).setAnimation(prepareAnimationWithId(R.anim.slide_in_bottom));
-        activity.findViewById(R.id.retry_layout).setVisibility(View.VISIBLE);
+        retryLayout.setAnimation(prepareAnimationWithId(R.anim.slide_in_bottom));
+        retryLayout.setVisibility(View.VISIBLE);
     }
 
     public void hideErrorMessage() {
-        activity.findViewById(R.id.retry_layout).setAnimation(prepareAnimationWithId(R.anim.slide_out_bottom));
-        activity.findViewById(R.id.retry_layout).setVisibility(View.GONE);
+        retryLayout.setAnimation(prepareAnimationWithId(R.anim.slide_out_bottom));
+        retryLayout.setVisibility(View.GONE);
     }
 
     private Animation prepareAnimationWithId(int animId) {

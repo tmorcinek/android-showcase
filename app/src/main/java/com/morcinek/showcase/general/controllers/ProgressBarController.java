@@ -15,35 +15,34 @@ public class ProgressBarController implements ProgressController {
 
     private Activity activity;
 
+    private View contentLayout;
+    private View progressBar;
+
     public ProgressBarController(Activity activity) {
         this.activity = activity;
-    }
-
-    private View getContentLayout() {
-        return activity.findViewById(R.id.content_layout);
+        contentLayout = activity.findViewById(R.id.content_layout);
+        progressBar = activity.findViewById(R.id.progress_bar);
     }
 
     @Override
     public void preExecute() {
-        View contentLayout = getContentLayout();
         if (contentLayout.getVisibility() == View.VISIBLE) {
             contentLayout.setAnimation(prepareAnimationWithId(android.R.anim.fade_out));
             contentLayout.setVisibility(View.GONE);
         }
-        activity.findViewById(R.id.progress_bar).setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void postExecuteWithSuccess(boolean success) {
         activity.findViewById(R.id.progress_bar).setVisibility(View.GONE);
         if (success) {
-            View contentLayout = getContentLayout();
             contentLayout.setAnimation(prepareAnimationWithId(android.R.anim.fade_in));
             contentLayout.setVisibility(View.VISIBLE);
         }
     }
 
     private Animation prepareAnimationWithId(int animId) {
-        return AnimationUtils.loadAnimation(activity.getApplicationContext(), animId);
+        return AnimationUtils.loadAnimation(activity, animId);
     }
 }

@@ -11,7 +11,7 @@ public class LocationFragment extends SupportMapFragment implements ToolbarHost{
 
     @Override
     public int getColor() {
-        return R.color.primaryColor;
+        return R.color.accentColor;
     }
 
     @Override

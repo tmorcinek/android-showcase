@@ -14,6 +14,8 @@ import com.morcinek.showcase.home.HomeActivity;
 import com.morcinek.showcase.general.network.error.ErrorHandler;
 import com.morcinek.showcase.skills.SkillsListFragment;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
