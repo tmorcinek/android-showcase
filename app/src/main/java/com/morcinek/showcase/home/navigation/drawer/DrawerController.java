@@ -11,6 +11,7 @@ import com.morcinek.showcase.author.AuthorFragment;
 import com.morcinek.showcase.education.EducationListFragment;
 import com.morcinek.showcase.experience.ExperienceListFragment;
 import com.morcinek.showcase.home.HomeContentController;
+import com.morcinek.showcase.location.LocationFragment;
 import com.morcinek.showcase.skills.SkillsListFragment;
 
 import java.util.ArrayList;
@@ -47,6 +48,7 @@ public class DrawerController implements AdapterView.OnItemClickListener {
         drawerItems.add(new DrawerItem(R.string.education_list_title, new EducationListFragment()));
         drawerItems.add(new DrawerItem(R.string.experience_list_title, new ExperienceListFragment()));
         drawerItems.add(new DrawerItem(R.string.skills_list_title, new SkillsListFragment()));
+        drawerItems.add(new DrawerItem(R.string.location_title, new LocationFragment()));
         return drawerItems;
     }
 

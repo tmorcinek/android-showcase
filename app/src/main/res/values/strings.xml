@@ -18,4 +18,5 @@
 
     <string name="experience_list_title">Experience</string>
     <string name="skills_list_title">Skills</string>
+    <string name="location_title">Author Location</string>
 </resources>
