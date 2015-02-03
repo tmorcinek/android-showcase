@@ -39,6 +39,8 @@ public class HomeActivity extends ShowcaseActivity {
         DrawerController drawerController = new DrawerController(this, homeContentController, drawerLayout);
         if (savedInstanceState == null) {
             drawerController.showDefaultFragment();
+        } else {
+            drawerToggle.onDrawerClosed(null);
         }
     }
 
