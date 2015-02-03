@@ -3,6 +3,7 @@ package com.morcinek.showcase.general.network.api;
 import com.morcinek.showcase.author.model.Author;
 import com.morcinek.showcase.education.model.Education;
 import com.morcinek.showcase.experience.model.Experience;
+import com.morcinek.showcase.location.model.Location;
 import com.morcinek.showcase.skills.model.Skill;
 
 import java.util.List;
@@ -26,4 +27,7 @@ public interface ApiService {
 
     @GET("/skills")
     public void getSkills(Callback<List<Skill>> callback);
+
+    @GET("/location")
+    public void getLocation(Callback<Location> callback);
 }

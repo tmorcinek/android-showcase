@@ -5,6 +5,7 @@ import com.morcinek.showcase.general.network.api.ApiService;
 import com.morcinek.showcase.author.model.Author;
 import com.morcinek.showcase.education.model.Education;
 import com.morcinek.showcase.experience.model.Experience;
+import com.morcinek.showcase.location.model.Location;
 import com.morcinek.showcase.skills.model.Skill;
 import com.morcinek.showcase.general.network.response.NetworkResponseListener;
 import com.morcinek.showcase.general.network.response.ProgressController;
@@ -40,5 +41,10 @@ public class ProductionNetworkFacade implements NetworkFacade {
     @Override
     public void getSkills(NetworkResponseListener<List<Skill>> responseListener, ProgressController... progressControllers) {
         apiService.getSkills(new NetworkCallback<>(responseListener, progressControllers));
+    }
+
+    @Override
+    public void getLocation(NetworkResponseListener<Location> responseListener, ProgressController... progressControllers) {
+        apiService.getLocation(new NetworkCallback<>(responseListener, progressControllers));
     }
 }

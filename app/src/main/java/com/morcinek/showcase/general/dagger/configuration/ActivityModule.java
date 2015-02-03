@@ -12,6 +12,7 @@ import com.morcinek.showcase.general.handlers.ToastErrorHandler;
 import com.morcinek.showcase.home.HomeContentController;
 import com.morcinek.showcase.home.HomeActivity;
 import com.morcinek.showcase.general.network.error.ErrorHandler;
+import com.morcinek.showcase.location.LocationFragment;
 import com.morcinek.showcase.skills.SkillsListFragment;
 
 import javax.inject.Singleton;
@@ -30,6 +31,7 @@ import dagger.Provides;
                 EducationDetailsFragment.class,
                 ExperienceListFragment.class,
                 SkillsListFragment.class,
+                LocationFragment.class,
         },
         addsTo = ApplicationModule.class,
         library = true
