@@ -26,7 +26,7 @@ public class ProgressBarController implements ProgressController {
 
     @Override
     public void preExecute() {
-        if (contentLayout.getVisibility() == View.VISIBLE) {
+        if (contentLayout != null && contentLayout.getVisibility() == View.VISIBLE) {
             contentLayout.setAnimation(prepareAnimationWithId(android.R.anim.fade_out));
             contentLayout.setVisibility(View.GONE);
         }
@@ -35,8 +35,8 @@ public class ProgressBarController implements ProgressController {
 
     @Override
     public void postExecuteWithSuccess(boolean success) {
-        activity.findViewById(R.id.progress_bar).setVisibility(View.GONE);
-        if (success) {
+        progressBar.setVisibility(View.GONE);
+        if (contentLayout != null && success) {
             contentLayout.setAnimation(prepareAnimationWithId(android.R.anim.fade_in));
             contentLayout.setVisibility(View.VISIBLE);
         }
