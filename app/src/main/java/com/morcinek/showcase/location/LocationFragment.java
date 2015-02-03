@@ -70,7 +70,7 @@ public class LocationFragment extends SupportMapFragment implements ToolbarHost,
 
         GoogleMap map = getMap();
         map.setMyLocationEnabled(true);
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 11));
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 11));
         map.addMarker(new MarkerOptions()
                 .title("I am here")
                 .snippet("This is my current location.")
