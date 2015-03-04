@@ -24,11 +24,6 @@ public class ProductionNetworkFacade implements NetworkFacade {
     }
 
     @Override
-    public void getEducation(NetworkResponseListener<List<Education>> responseListener, ProgressController... progressControllers) {
-        apiService.getEducation(new NetworkCallback<>(responseListener, progressControllers));
-    }
-
-    @Override
     public void getExperience(NetworkResponseListener<List<Experience>> responseListener, ProgressController... progressControllers) {
         apiService.getExperience(new NetworkCallback<>(responseListener, progressControllers));
     }

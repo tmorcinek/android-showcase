@@ -9,6 +9,7 @@ import com.morcinek.showcase.general.network.NetworkFacade;
 import com.morcinek.showcase.general.network.ProductionNetworkFacade;
 import com.morcinek.showcase.general.network.api.ApiService;
 import com.morcinek.showcase.general.network.requesters.AuthorRequester;
+import com.morcinek.showcase.general.network.requesters.EducationsRequester;
 
 import javax.inject.Singleton;
 
@@ -56,5 +57,10 @@ public class ApplicationModule {
     @Provides
     AuthorRequester provideAuthorRequester(ApiService apiService) {
         return new AuthorRequester(apiService);
+    }
+
+    @Provides
+    EducationsRequester provideEducationsRequester(ApiService apiService) {
+        return new EducationsRequester(apiService);
     }
 }

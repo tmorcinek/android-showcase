@@ -60,9 +60,11 @@ public abstract class AbstractShowcaseListFragment<T> extends ToolbarHostFragmen
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        onRefresh();
+    public void onResume() {
+        super.onResume();
+        if (listAdapter.getItemCount() == 0) {
+            onRefresh();
+        }
     }
 
     private void setupListAdapter() {
