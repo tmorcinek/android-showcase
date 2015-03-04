@@ -6,10 +6,13 @@ android {
 
     defaultConfig {
         applicationId "com.morcinek.showcase"
+
         minSdkVersion 14
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
+
+        buildConfigField 'String', 'API_ENDPOINT', '"http://portfolio-morcinek.rhcloud.com/api"'
     }
     buildTypes {
         release {

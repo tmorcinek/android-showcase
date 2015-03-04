@@ -24,11 +24,6 @@ public class ProductionNetworkFacade implements NetworkFacade {
     }
 
     @Override
-    public void getAuthor(NetworkResponseListener<Author> responseListener, ProgressController... progressControllers) {
-        apiService.getAuthor(new NetworkCallback<>(responseListener, progressControllers));
-    }
-
-    @Override
     public void getEducation(NetworkResponseListener<List<Education>> responseListener, ProgressController... progressControllers) {
         apiService.getEducation(new NetworkCallback<>(responseListener, progressControllers));
     }

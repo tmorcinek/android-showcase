@@ -16,9 +16,6 @@ import java.util.List;
  */
 public interface NetworkFacade {
 
-    public void getAuthor(final NetworkResponseListener<Author> responseListener,
-                          ProgressController... progressControllers);
-
     public void getEducation(final NetworkResponseListener<List<Education>> responseListener,
                              ProgressController... progressControllers);
 

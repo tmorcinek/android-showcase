@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.morcinek.showcase.R;
+import com.morcinek.showcase.general.network.requesters.AuthorRequester;
 import com.morcinek.showcase.home.navigation.ToolbarHostFragment;
 import com.morcinek.showcase.general.controllers.ProgressBarController;
 import com.morcinek.showcase.general.handlers.RetryLayoutErrorHandler;
@@ -20,7 +21,7 @@ import retrofit.RetrofitError;
 public class AuthorFragment extends ToolbarHostFragment implements NetworkResponseListener<Author>, View.OnClickListener {
 
     @Inject
-    NetworkFacade networkFacade;
+    AuthorRequester authorRequester;
 
     @Inject
     RetryLayoutErrorHandler errorHandler;
@@ -48,7 +49,8 @@ public class AuthorFragment extends ToolbarHostFragment implements NetworkRespon
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        networkFacade.getAuthor(this, progressBarController);
+        authorRequester.initialize(this, progressBarController);
+        authorRequester.requestAuthor();
     }
 
     @Override
@@ -73,6 +75,12 @@ public class AuthorFragment extends ToolbarHostFragment implements NetworkRespon
     @Override
     public void onClick(View v) {
         errorHandler.hideErrorMessage();
-        networkFacade.getAuthor(this, progressBarController);
+        authorRequester.requestAuthor();
+    }
+
+    @Override
+    public void onDestroy() {
+        authorRequester.cancelRequest();
+        super.onDestroy();
     }
 }
