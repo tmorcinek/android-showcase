@@ -15,7 +15,7 @@ import com.morcinek.showcase.R;
 import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
 import com.morcinek.showcase.general.controllers.RefreshProgressController;
 import com.morcinek.showcase.general.handlers.RetryLayoutErrorHandler;
-import com.morcinek.showcase.general.network.NetworkFacade;
+import com.morcinek.showcase.general.network.requesters.NetworkRequester;
 import com.morcinek.showcase.general.network.response.NetworkResponseListener;
 import com.morcinek.showcase.home.navigation.ToolbarHostFragment;
 
@@ -29,9 +29,6 @@ import retrofit.RetrofitError;
  * Copyright 2015 Tomasz Morcinek. All rights reserved.
  */
 public abstract class AbstractShowcaseListFragment<T> extends ToolbarHostFragment implements NetworkResponseListener<List<T>>, SwipeRefreshLayout.OnRefreshListener, AbstractRecyclerViewAdapter.OnItemClickListener<T>, View.OnClickListener {
-
-    @Inject
-    protected NetworkFacade networkFacade;
 
     @Inject
     protected RefreshProgressController progressController;
@@ -48,6 +45,8 @@ public abstract class AbstractShowcaseListFragment<T> extends ToolbarHostFragmen
 
     protected abstract AbstractRecyclerViewAdapter<T, ? extends RecyclerView.ViewHolder> getCreateListAdapter();
 
+    protected abstract NetworkRequester<List<T>> getNetworkRequester();
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -57,6 +56,12 @@ public abstract class AbstractShowcaseListFragment<T> extends ToolbarHostFragmen
         setupListAdapter();
         setupRecyclerView(view);
         setupSwipeRefreshLayout(view);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        getNetworkRequester().initialize(this, progressController);
     }
 
     @Override
@@ -109,5 +114,11 @@ public abstract class AbstractShowcaseListFragment<T> extends ToolbarHostFragmen
     public void onClick(View v) {
         errorHandler.hideErrorMessage();
         onRefresh();
+    }
+
+    @Override
+    public void onDestroy() {
+        getNetworkRequester().cancelRequest();
+        super.onDestroy();
     }
 }

@@ -19,11 +19,11 @@ public abstract class NetworkRequester<T> {
         this.apiService = apiService;
     }
 
-    public void initialize(NetworkResponseListener<T> responseListener, ProgressController... progressControllers){
-        networkCallback = new NetworkCallback<T>(responseListener,progressControllers);
+    public void initialize(NetworkResponseListener<T> responseListener, ProgressController... progressControllers) {
+        networkCallback = new NetworkCallback<>(responseListener, progressControllers);
     }
 
-    public void cancelRequest(){
+    public void cancelRequest() {
         networkCallback.cancel();
     }
 }

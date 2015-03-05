@@ -1,21 +1,22 @@
 package com.morcinek.showcase.education;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 
 import com.morcinek.showcase.R;
+import com.morcinek.showcase.education.model.Education;
 import com.morcinek.showcase.general.AbstractShowcaseListFragment;
 import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
-import com.morcinek.showcase.education.model.Education;
 import com.morcinek.showcase.general.network.requesters.EducationsRequester;
 
 import javax.inject.Inject;
 
+import lombok.Getter;
+
 public class EducationListFragment extends AbstractShowcaseListFragment<Education> {
 
+    @Getter
     @Inject
-    EducationsRequester educationsRequester;
+    EducationsRequester networkRequester;
 
     @Override
     protected AbstractRecyclerViewAdapter<Education, ? extends RecyclerView.ViewHolder> getCreateListAdapter() {
@@ -33,13 +34,7 @@ public class EducationListFragment extends AbstractShowcaseListFragment<Educatio
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        educationsRequester.initialize(this, progressController);
-    }
-
-    @Override
     public void onRefresh() {
-        educationsRequester.requestEducations();
+        networkRequester.requestEducations();
     }
 }

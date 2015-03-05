@@ -5,11 +5,12 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.morcinek.showcase.BuildConfig;
-import com.morcinek.showcase.general.network.NetworkFacade;
-import com.morcinek.showcase.general.network.ProductionNetworkFacade;
 import com.morcinek.showcase.general.network.api.ApiService;
 import com.morcinek.showcase.general.network.requesters.AuthorRequester;
 import com.morcinek.showcase.general.network.requesters.EducationsRequester;
+import com.morcinek.showcase.general.network.requesters.ExperienceRequester;
+import com.morcinek.showcase.general.network.requesters.LocationRequester;
+import com.morcinek.showcase.general.network.requesters.SkillsRequester;
 
 import javax.inject.Singleton;
 
@@ -49,12 +50,6 @@ public class ApplicationModule {
     }
 
     @Provides
-    @Singleton
-    NetworkFacade provideNetworkFacade(ApiService apiService) {
-        return new ProductionNetworkFacade(apiService);
-    }
-
-    @Provides
     AuthorRequester provideAuthorRequester(ApiService apiService) {
         return new AuthorRequester(apiService);
     }
@@ -62,5 +57,20 @@ public class ApplicationModule {
     @Provides
     EducationsRequester provideEducationsRequester(ApiService apiService) {
         return new EducationsRequester(apiService);
+    }
+
+    @Provides
+    ExperienceRequester provideExperienceRequester(ApiService apiService) {
+        return new ExperienceRequester(apiService);
+    }
+
+    @Provides
+    SkillsRequester provideSkillsRequester(ApiService apiService) {
+        return new SkillsRequester(apiService);
+    }
+
+    @Provides
+    LocationRequester provideLocationRequester(ApiService apiService) {
+        return new LocationRequester(apiService);
     }
 }

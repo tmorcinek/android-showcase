@@ -13,8 +13,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.general.controllers.ProgressBarController;
 import com.morcinek.showcase.general.dagger.components.ShowcaseActivity;
-import com.morcinek.showcase.general.network.NetworkFacade;
 import com.morcinek.showcase.general.network.error.ErrorHandler;
+import com.morcinek.showcase.general.network.requesters.LocationRequester;
 import com.morcinek.showcase.general.network.response.NetworkResponseListener;
 import com.morcinek.showcase.home.navigation.ToolbarHost;
 import com.morcinek.showcase.location.model.Location;
@@ -29,7 +29,7 @@ import retrofit.RetrofitError;
 public class LocationFragment extends SupportMapFragment implements ToolbarHost, OnMapReadyCallback, NetworkResponseListener<Location> {
 
     @Inject
-    NetworkFacade networkFacade;
+    LocationRequester locationRequester;
 
     @Inject
     ProgressBarController progressBarController;
@@ -51,6 +51,7 @@ public class LocationFragment extends SupportMapFragment implements ToolbarHost,
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         ((ShowcaseActivity) getActivity()).inject(this);
+        locationRequester.initialize(this, progressBarController);
     }
 
     @Override
@@ -61,7 +62,7 @@ public class LocationFragment extends SupportMapFragment implements ToolbarHost,
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        networkFacade.getLocation(this, progressBarController);
+        locationRequester.requestLocation();
     }
 
     @Override
@@ -80,5 +81,11 @@ public class LocationFragment extends SupportMapFragment implements ToolbarHost,
     @Override
     public void failure(RetrofitError error) {
         errorHandler.handleError(error);
+    }
+
+    @Override
+    public void onDestroy() {
+        locationRequester.cancelRequest();
+        super.onDestroy();
     }
 }

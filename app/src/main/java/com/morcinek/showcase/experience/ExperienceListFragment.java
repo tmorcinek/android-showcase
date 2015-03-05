@@ -6,8 +6,17 @@ import com.morcinek.showcase.R;
 import com.morcinek.showcase.general.AbstractShowcaseListFragment;
 import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
 import com.morcinek.showcase.experience.model.Experience;
+import com.morcinek.showcase.general.network.requesters.ExperienceRequester;
+
+import javax.inject.Inject;
+
+import lombok.Getter;
 
 public class ExperienceListFragment extends AbstractShowcaseListFragment<Experience> {
+
+    @Inject
+    @Getter
+    ExperienceRequester networkRequester;
 
     @Override
     protected AbstractRecyclerViewAdapter<Experience, ? extends RecyclerView.ViewHolder> getCreateListAdapter() {
@@ -26,6 +35,6 @@ public class ExperienceListFragment extends AbstractShowcaseListFragment<Experie
 
     @Override
     public void onRefresh() {
-        networkFacade.getExperience(this, progressController);
+        networkRequester.requestExperience();
     }
 }
