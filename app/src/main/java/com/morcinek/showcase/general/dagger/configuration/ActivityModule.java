@@ -1,7 +1,8 @@
 package com.morcinek.showcase.general.dagger.configuration;
 
 import com.morcinek.showcase.author.AuthorFragment;
-import com.morcinek.showcase.education.EducationDetailsFragment;
+import com.morcinek.showcase.details.DetailsActivity;
+import com.morcinek.showcase.education.details.EducationDetailsFragment;
 import com.morcinek.showcase.experience.ExperienceListFragment;
 import com.morcinek.showcase.general.dagger.components.ShowcaseActivity;
 import com.morcinek.showcase.education.EducationListFragment;
@@ -14,8 +15,6 @@ import com.morcinek.showcase.home.HomeActivity;
 import com.morcinek.showcase.general.network.error.ErrorHandler;
 import com.morcinek.showcase.location.LocationFragment;
 import com.morcinek.showcase.skills.SkillsListFragment;
-
-import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -32,6 +31,7 @@ import dagger.Provides;
                 ExperienceListFragment.class,
                 SkillsListFragment.class,
                 LocationFragment.class,
+                DetailsActivity.class,
         },
         addsTo = ApplicationModule.class,
         library = true

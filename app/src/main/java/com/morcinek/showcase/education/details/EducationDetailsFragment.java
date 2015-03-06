@@ -1,5 +1,6 @@
-package com.morcinek.showcase.education;
+package com.morcinek.showcase.education.details;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -31,6 +32,19 @@ public class EducationDetailsFragment extends ToolbarHostFragment implements Vie
     @Override
     public String getTitle() {
         return getString(R.string.education_details_title);
+    }
+
+    @SuppressLint("ValidFragment")
+    private EducationDetailsFragment() {
+        super();
+    }
+
+    public static EducationDetailsFragment newInstance(Education education) {
+        EducationDetailsFragment fragment = new EducationDetailsFragment();
+        Bundle args = new Bundle();
+        args.putParcelable(Education.class.getName(), education);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
@@ -77,4 +91,6 @@ public class EducationDetailsFragment extends ToolbarHostFragment implements Vie
                 break;
         }
     }
+
+
 }

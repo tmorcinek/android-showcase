@@ -3,7 +3,7 @@ package com.morcinek.showcase.experience;
 import android.support.v7.widget.RecyclerView;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.general.AbstractShowcaseListFragment;
+import com.morcinek.showcase.general.AbstractListFragment;
 import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
 import com.morcinek.showcase.experience.model.Experience;
 import com.morcinek.showcase.general.network.requesters.ExperienceRequester;
@@ -12,7 +12,7 @@ import javax.inject.Inject;
 
 import lombok.Getter;
 
-public class ExperienceListFragment extends AbstractShowcaseListFragment<Experience> {
+public class ExperienceListFragment extends AbstractListFragment<Experience> {
 
     @Inject
     @Getter

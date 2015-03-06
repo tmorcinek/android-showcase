@@ -3,7 +3,7 @@ package com.morcinek.showcase.skills;
 import android.support.v7.widget.RecyclerView;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.general.AbstractShowcaseListFragment;
+import com.morcinek.showcase.general.AbstractListFragment;
 import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
 import com.morcinek.showcase.general.network.requesters.SkillsRequester;
 import com.morcinek.showcase.skills.model.Skill;
@@ -12,7 +12,7 @@ import javax.inject.Inject;
 
 import lombok.Getter;
 
-public class SkillsListFragment extends AbstractShowcaseListFragment<Skill> {
+public class SkillsListFragment extends AbstractListFragment<Skill> {
 
     @Getter
     @Inject

@@ -17,6 +17,7 @@ import com.morcinek.showcase.general.controllers.RefreshProgressController;
 import com.morcinek.showcase.general.handlers.RetryLayoutErrorHandler;
 import com.morcinek.showcase.general.network.requesters.NetworkRequester;
 import com.morcinek.showcase.general.network.response.NetworkResponseListener;
+import com.morcinek.showcase.home.HomeContentController;
 import com.morcinek.showcase.home.navigation.ToolbarHostFragment;
 
 import java.util.List;
@@ -28,10 +29,13 @@ import retrofit.RetrofitError;
 /**
  * Copyright 2015 Tomasz Morcinek. All rights reserved.
  */
-public abstract class AbstractShowcaseListFragment<T> extends ToolbarHostFragment implements NetworkResponseListener<List<T>>, SwipeRefreshLayout.OnRefreshListener, AbstractRecyclerViewAdapter.OnItemClickListener<T>, View.OnClickListener {
+public abstract class AbstractListFragment<T> extends ToolbarHostFragment implements NetworkResponseListener<List<T>>, SwipeRefreshLayout.OnRefreshListener, AbstractRecyclerViewAdapter.OnItemClickListener<T>, View.OnClickListener {
 
     @Inject
     protected RefreshProgressController progressController;
+
+    @Inject
+    protected HomeContentController homeContentController;
 
     @Inject
     RetryLayoutErrorHandler errorHandler;
