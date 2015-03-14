@@ -26,7 +26,7 @@ public class ToolbarDrawerToggleController extends ActionBarDrawerToggle {
     }
 
     private int getToolbarDefaultColorResourceId() {
-        return R.color.primaryDarkColor;
+        return R.color.primary_dark_color;
     }
 
     private int getToolbarDefaultTitleResourceId() {

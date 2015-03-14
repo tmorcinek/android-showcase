@@ -2,5 +2,5 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android" android:exitFadeDuration="@android:integer/config_mediumAnimTime" android:enterFadeDuration="@android:integer/config_mediumAnimTime">
     <item android:state_pressed="true" android:color="@color/text" />
     <item android:state_focused="true" android:color="@color/text" />
-    <item android:color="@color/accentColor" />
+    <item android:color="@color/accent_color" />
 </selector>

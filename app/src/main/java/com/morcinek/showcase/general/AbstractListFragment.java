@@ -90,7 +90,7 @@ public abstract class AbstractListFragment<T> extends ToolbarHostFragment implem
 
     private void setupSwipeRefreshLayout(View view) {
         SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
-        swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.accentColor));
+        swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.accent_color));
         swipeRefreshLayout.setOnRefreshListener(this);
     }
 

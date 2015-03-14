@@ -1,13 +1,13 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primaryDarkColor">
+    android:background="@color/primary_dark_color">
 
     <LinearLayout
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:background="@color/textWhite">
+        android:background="@color/text_white">
 
         <include
             layout="@layout/toolbar"
@@ -33,7 +33,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
                 android:choiceMode="singleChoice"
-                android:divider="@color/primaryDarkColor"
+                android:divider="@color/primary_dark_color"
                 android:dividerHeight="0.2dp"
                 android:background="@android:color/white" />
         </android.support.v4.widget.DrawerLayout>

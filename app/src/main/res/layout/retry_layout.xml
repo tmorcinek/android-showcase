@@ -11,7 +11,7 @@
 
     <TextView
         android:text="@string/server_error_message"
-        android:textColor="@color/textWhite"
+        android:textColor="@color/text_white"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:layout_height="wrap_content"

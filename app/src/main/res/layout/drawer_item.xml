@@ -6,5 +6,5 @@
     android:textAppearance="?android:attr/textAppearanceListItemSmall"
     android:background="@drawable/drawer_item_background"
     android:padding="@dimen/text_margin"
-    android:textColor="@color/primaryDarkColor"
+    android:textColor="@color/primary_dark_color"
     android:gravity="start|center_vertical" />

@@ -30,7 +30,7 @@
             android:src="@drawable/avatar"
             app:riv_corner_radius="30dip"
             app:riv_border_width="1dp"
-            app:riv_border_color="@color/primaryDarkColor"
+            app:riv_border_color="@color/primary_dark_color"
             app:riv_mutate_background="true"
             app:riv_oval="true"
             android:layout_margin="@dimen/activity_vertical_margin" />
