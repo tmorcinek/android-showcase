@@ -14,10 +14,9 @@ import android.view.animation.LayoutAnimationController;
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
 import com.morcinek.showcase.general.controllers.RefreshProgressController;
-import com.morcinek.showcase.general.handlers.RetryLayoutErrorHandler;
+import com.morcinek.showcase.general.handlers.RetryErrorHandler;
 import com.morcinek.showcase.general.network.requesters.NetworkRequester;
 import com.morcinek.showcase.general.network.response.NetworkResponseListener;
-import com.morcinek.showcase.home.HomeContentController;
 import com.morcinek.showcase.home.navigation.ToolbarHostFragment;
 
 import java.util.List;
@@ -29,18 +28,19 @@ import retrofit.RetrofitError;
 /**
  * Copyright 2015 Tomasz Morcinek. All rights reserved.
  */
-public abstract class AbstractListFragment<T> extends ToolbarHostFragment implements NetworkResponseListener<List<T>>, SwipeRefreshLayout.OnRefreshListener, AbstractRecyclerViewAdapter.OnItemClickListener<T>, View.OnClickListener {
+public abstract class AbstractListFragment<T> extends ToolbarHostFragment implements NetworkResponseListener<List<T>>, SwipeRefreshLayout.OnRefreshListener, AbstractRecyclerViewAdapter.OnItemClickListener<T>, Runnable {
 
     @Inject
     protected RefreshProgressController progressController;
 
     @Inject
-    protected HomeContentController homeContentController;
-
-    @Inject
-    RetryLayoutErrorHandler errorHandler;
+    RetryErrorHandler errorHandler;
 
     private AbstractRecyclerViewAdapter<T, ? extends RecyclerView.ViewHolder> listAdapter;
+
+    private RecyclerView recyclerView;
+
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected int getLayoutResourceId() {
@@ -55,8 +55,6 @@ public abstract class AbstractListFragment<T> extends ToolbarHostFragment implem
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.retry_layout).setOnClickListener(this);
-
         setupListAdapter();
         setupRecyclerView(view);
         setupSwipeRefreshLayout(view);
@@ -66,6 +64,8 @@ public abstract class AbstractListFragment<T> extends ToolbarHostFragment implem
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         getNetworkRequester().initialize(this, progressController);
+
+        errorHandler.setRetryAction(this);
     }
 
     @Override
@@ -82,21 +82,20 @@ public abstract class AbstractListFragment<T> extends ToolbarHostFragment implem
     }
 
     private void setupRecyclerView(View view) {
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(listAdapter);
     }
 
     private void setupSwipeRefreshLayout(View view) {
-        SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.accent));
         swipeRefreshLayout.setOnRefreshListener(this);
     }
 
     @Override
     public void success(List<T> object) {
-        errorHandler.hideErrorMessage();
         listAdapter.setList(object);
         invokeRecyclerViewAnimation();
     }
@@ -104,7 +103,6 @@ public abstract class AbstractListFragment<T> extends ToolbarHostFragment implem
     private void invokeRecyclerViewAnimation() {
         Animation fadeInAnimation = AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_in_left);
         fadeInAnimation.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
-        RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.recycler_view);
         recyclerView.setLayoutAnimation(new LayoutAnimationController(fadeInAnimation));
         recyclerView.startLayoutAnimation();
     }
@@ -115,8 +113,8 @@ public abstract class AbstractListFragment<T> extends ToolbarHostFragment implem
     }
 
     @Override
-    public void onClick(View v) {
-        errorHandler.hideErrorMessage();
+    public void run() {
+        swipeRefreshLayout.setRefreshing(true);
         onRefresh();
     }
 

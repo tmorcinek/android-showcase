@@ -9,7 +9,7 @@
     <string name="author_title">About Author</string>
     <string name="description_header">MY DESCRIPTION</string>
     <string name="email_header">MY EMAIL</string>
-    <string name="retry">RETRY</string>
+    <string name="retry">Retry</string>
 
     <string name="education_list_title">Education</string>
     <string name="education_details_title">Education Details</string>

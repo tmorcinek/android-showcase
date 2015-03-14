@@ -8,7 +8,7 @@ import com.morcinek.showcase.general.dagger.components.ShowcaseActivity;
 import com.morcinek.showcase.education.EducationListFragment;
 import com.morcinek.showcase.general.controllers.ProgressBarController;
 import com.morcinek.showcase.general.controllers.RefreshProgressController;
-import com.morcinek.showcase.general.handlers.RetryLayoutErrorHandler;
+import com.morcinek.showcase.general.handlers.RetryErrorHandler;
 import com.morcinek.showcase.general.handlers.ToastErrorHandler;
 import com.morcinek.showcase.home.HomeContentController;
 import com.morcinek.showcase.home.HomeActivity;
@@ -50,8 +50,8 @@ public class ActivityModule {
     }
 
     @Provides
-    RetryLayoutErrorHandler provideRetryLayoutErrorHandler() {
-        return new RetryLayoutErrorHandler(showcaseActivity);
+    RetryErrorHandler provideRetryLayoutErrorHandler() {
+        return new RetryErrorHandler(showcaseActivity);
     }
 
     @Provides

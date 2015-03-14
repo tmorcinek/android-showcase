@@ -2,13 +2,12 @@ package com.morcinek.showcase.author;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.View;
 import android.widget.TextView;
 
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.author.model.Author;
 import com.morcinek.showcase.general.controllers.ProgressBarController;
-import com.morcinek.showcase.general.handlers.RetryLayoutErrorHandler;
+import com.morcinek.showcase.general.handlers.RetryErrorHandler;
 import com.morcinek.showcase.general.network.requesters.AuthorRequester;
 import com.morcinek.showcase.general.network.response.NetworkResponseListener;
 import com.morcinek.showcase.home.navigation.ToolbarHostFragment;
@@ -17,13 +16,13 @@ import javax.inject.Inject;
 
 import retrofit.RetrofitError;
 
-public class AuthorFragment extends ToolbarHostFragment implements NetworkResponseListener<Author>, View.OnClickListener {
+public class AuthorFragment extends ToolbarHostFragment implements NetworkResponseListener<Author>, Runnable {
 
     @Inject
     AuthorRequester authorRequester;
 
     @Inject
-    RetryLayoutErrorHandler errorHandler;
+    RetryErrorHandler errorHandler;
 
     @Inject
     ProgressBarController progressBarController;
@@ -39,22 +38,16 @@ public class AuthorFragment extends ToolbarHostFragment implements NetworkRespon
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        view.findViewById(R.id.retry_layout).setOnClickListener(this);
-    }
-
-    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         authorRequester.initialize(this, progressBarController);
         authorRequester.requestAuthor();
+
+        errorHandler.setRetryAction(this);
     }
 
     @Override
     public void success(Author object) {
-        errorHandler.hideErrorMessage();
         setupTextViewWithText(R.id.name, object.getName());
         setupTextViewWithText(R.id.description, object.getDescription());
         setupTextViewWithText(R.id.email, object.getEmail());
@@ -72,8 +65,7 @@ public class AuthorFragment extends ToolbarHostFragment implements NetworkRespon
     }
 
     @Override
-    public void onClick(View v) {
-        errorHandler.hideErrorMessage();
+    public void run() {
         authorRequester.requestAuthor();
     }
 
