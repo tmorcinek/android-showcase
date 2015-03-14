@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- theme colors -->
-    <color name="primary_color">#2196F3</color>
-    <color name="primary_dark_color">#0D47A1</color>
+    <color name="primary_color">#4741B8</color>
+    <color name="primary_dark_color">#392DA1</color>
     <color name="accent_color">#F44336</color>
     <color name="background_color">#EEEEEE</color>
     <color name="divider">#DADADA</color>
 
-    <!-- general text colors -->
-    <color name="text">#212121</color>`
+    <!-- dark text colors -->
+    <color name="text">#202020</color>`
+    <color name="text_secondary">#727272</color>
+    <color name="text_disabled">#B8B8B8</color>
+
+    <!-- light text colors -->
     <color name="text_white">#FFFFFF</color>
+
 
     <color name="cards_color">#FAFAFA</color>
 
