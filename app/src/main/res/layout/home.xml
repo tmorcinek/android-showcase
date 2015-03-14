@@ -1,7 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_dark_color">
+    android:background="@color/primary_dark">
 
     <LinearLayout
         android:layout_height="match_parent"
@@ -33,7 +33,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
                 android:choiceMode="singleChoice"
-                android:divider="@color/primary_dark_color"
+                android:divider="@color/primary_dark"
                 android:dividerHeight="0.2dp"
                 android:background="@android:color/white" />
         </android.support.v4.widget.DrawerLayout>

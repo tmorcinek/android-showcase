@@ -31,6 +31,6 @@ public abstract class ToolbarHostFragment extends Fragment implements ToolbarHos
 
     @Override
     public int getColor() {
-        return R.color.primary_color;
+        return R.color.primary;
     }
 }
