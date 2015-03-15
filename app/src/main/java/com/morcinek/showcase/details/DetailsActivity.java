@@ -24,7 +24,7 @@ public class DetailsActivity extends ShowcaseActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        overridePendingTransition(R.anim.slide_in_top, android.R.anim.fade_out);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_outside_right);
         setContentView(R.layout.details);
 
         setupToolbar();
@@ -51,5 +51,11 @@ public class DetailsActivity extends ShowcaseActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         onBackPressed();
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_inside_left, R.anim.slide_out_right);
     }
 }
