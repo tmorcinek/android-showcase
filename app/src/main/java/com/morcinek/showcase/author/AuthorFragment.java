@@ -2,6 +2,7 @@ package com.morcinek.showcase.author;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 import android.widget.TextView;
 
 import com.morcinek.showcase.R;
@@ -38,12 +39,13 @@ public class AuthorFragment extends ToolbarHostFragment implements NetworkRespon
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         authorRequester.initialize(this, progressBarController);
         authorRequester.requestAuthor();
 
-        errorHandler.setRetryAction(this);
+        errorHandler.registerAction(this);
+        errorHandler.registerViewGroup((android.view.ViewGroup) view);
     }
 
     @Override

@@ -58,14 +58,11 @@ public abstract class AbstractListFragment<T> extends ToolbarHostFragment implem
         setupListAdapter();
         setupRecyclerView(view);
         setupSwipeRefreshLayout(view);
-    }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
         getNetworkRequester().initialize(this, progressController);
 
-        errorHandler.setRetryAction(this);
+        errorHandler.registerAction(this);
+        errorHandler.registerViewGroup((android.view.ViewGroup) view);
     }
 
     @Override

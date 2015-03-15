@@ -3,6 +3,7 @@ package com.morcinek.showcase.general.handlers;
 import android.app.Activity;
 import android.app.Notification;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
@@ -23,17 +24,23 @@ public class RetryErrorHandler implements ErrorHandler {
 
     private ActionClickListener actionClickListener;
 
+    private ViewGroup viewGroup;
+
     public RetryErrorHandler(Activity activity) {
         this.activity = activity;
     }
 
-    public void setRetryAction(final Runnable retryAction) {
+    public void registerAction(final Runnable retryAction) {
         actionClickListener = new ActionClickListener() {
             @Override
             public void onActionClicked(Snackbar snackbar) {
                 retryAction.run();
             }
         };
+    }
+
+    public void registerViewGroup(ViewGroup viewGroup) {
+        this.viewGroup = viewGroup;
     }
 
     @Override
@@ -43,6 +50,6 @@ public class RetryErrorHandler implements ErrorHandler {
                         .text(networkError.getLocalizedMessage())
                         .actionLabel(R.string.retry)
                         .actionListener(actionClickListener)
-                , activity);
+                , viewGroup);
     }
 }

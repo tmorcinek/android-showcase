@@ -18,8 +18,8 @@ public abstract class ToolbarHostFragment extends Fragment implements ToolbarHos
     protected abstract int getLayoutResourceId();
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         ((ShowcaseActivity) getActivity()).inject(this);
     }
 

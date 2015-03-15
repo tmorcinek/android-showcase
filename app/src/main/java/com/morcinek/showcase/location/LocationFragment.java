@@ -48,15 +48,10 @@ public class LocationFragment extends SupportMapFragment implements ToolbarHost,
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        ((ShowcaseActivity) getActivity()).inject(this);
-        locationRequester.initialize(this, progressBarController);
-    }
-
-    @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ((ShowcaseActivity) getActivity()).inject(this);
+        locationRequester.initialize(this, progressBarController);
         getMapAsync(this);
     }
 
