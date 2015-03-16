@@ -20,7 +20,7 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/text_margin"
+            android:paddingTop="@dimen/text_vertical_margin"
             style="@style/HeaderText" />
 
         <com.makeramen.RoundedImageView

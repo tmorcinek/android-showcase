@@ -44,7 +44,6 @@ public class DetailsActivity extends ShowcaseActivity implements View.OnClickLis
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setBackgroundColor(getResources().getColor(android.R.color.transparent));
         toolbar.setNavigationOnClickListener(this);
     }
 

@@ -3,7 +3,8 @@
     <dimen name="horizontal_margin">16dp</dimen>
     <dimen name="vertical_margin">16dp</dimen>
 
-    <dimen name="text_margin">8dp</dimen>
+    <dimen name="text_vertical_margin">8dp</dimen>
+    <dimen name="header_bottom_margin">16dp</dimen>
 
     <dimen name="button_height">36dp</dimen>
     <dimen name="button_min_width">36dp</dimen>

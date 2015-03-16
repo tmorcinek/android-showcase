@@ -7,14 +7,14 @@
     </style>
 
     <style name="SectionHeader" parent="HeaderText">
-        <item name="android:layout_marginTop">@dimen/text_margin</item>
+        <item name="android:layout_marginTop">@dimen/header_bottom_margin</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="DefaultText">
-        <item name="android:paddingLeft">@dimen/text_margin</item>
-        <item name="android:paddingRight">@dimen/text_margin</item>
+        <item name="android:paddingLeft">@dimen/text_vertical_margin</item>
+        <item name="android:paddingRight">@dimen/text_vertical_margin</item>
         <item name="android:textSize">15sp</item>
     </style>
 
