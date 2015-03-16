@@ -7,7 +7,7 @@
 
     <string name="server_error_message">Error occurred while calling server API.</string>
     <string name="author_title">About Author</string>
-    <string name="description_header">MY DESCRIPTION</string>
+    <string name="author_description_header">MY DESCRIPTION</string>
     <string name="email_header">MY EMAIL</string>
     <string name="retry">Retry</string>
 
@@ -19,4 +19,10 @@
     <string name="experience_list_title">Experience</string>
     <string name="skills_list_title">Skills</string>
     <string name="location_title">Author Location</string>
+
+    <string name="university_header">University</string>
+    <string name="speciality_header">Speciality</string>
+    <string name="description_header">Description</string>
+    <string name="education_dates_header">Time period</string>
+    <string name="website_link">Go to website</string>
 </resources>

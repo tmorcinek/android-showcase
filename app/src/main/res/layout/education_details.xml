@@ -5,7 +5,11 @@
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/horizontal_margin"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingTop="@dimen/vertical_margin"
+        android:paddingBottom="@dimen/vertical_margin">
 
 
         <LinearLayout
@@ -13,42 +17,63 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:orientation="vertical"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:paddingBottom="@dimen/activity_vertical_margin">
+            android:layout_marginBottom="@dimen/vertical_margin">
+
+            <TextView
+                android:text="@string/university_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/SectionHeader" />
 
             <TextView
                 android:id="@+id/title"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/ListItemTitle" />
+                style="@style/DefaultText" />
+
+            <TextView
+                android:text="@string/speciality_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/SectionHeader" />
 
             <TextView
                 android:id="@+id/speciality"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/ListItemSubtitle" />
+                style="@style/DefaultText" />
+
+            <TextView
+                android:text="@string/description_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/SectionHeader" />
 
             <TextView
                 android:id="@+id/description"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/ListItemSubtitle" />
+                style="@style/DefaultText" />
+
+            <TextView
+                android:text="@string/education_dates_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/SectionHeader" />
 
             <TextView
                 android:id="@+id/dates"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/ListItemSubtitle" />
-
+                style="@style/DefaultText" />
         </LinearLayout>
 
         <Button
-            android:layout_below="@id/details_container"
             android:id="@+id/link_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/ListItemSubtitle" />
+            android:text="@string/website_link"
+            android:layout_below="@id/details_container"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            style="@style/ActiveButton" />
     </RelativeLayout>
 </ScrollView>

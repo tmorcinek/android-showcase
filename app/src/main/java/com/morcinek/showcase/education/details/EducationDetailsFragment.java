@@ -67,9 +67,7 @@ public class EducationDetailsFragment extends ToolbarHostFragment implements Vie
     }
 
     private void setupLinkButton(View view) {
-        Button linkButton = (Button) view.findViewById(R.id.link_button);
-        linkButton.setText(education.getLink().getName());
-        linkButton.setOnClickListener(this);
+        view.findViewById(R.id.link_button).setOnClickListener(this);
     }
 
     private void setupTextViews(View view) {
