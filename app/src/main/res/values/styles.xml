@@ -3,7 +3,7 @@
     <style name="HeaderText">
         <item name="android:textSize">30sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/primary_dark</item>
+        <item name="android:textColor">@color/text_secondary</item>
     </style>
 
     <style name="SectionHeader" parent="HeaderText">

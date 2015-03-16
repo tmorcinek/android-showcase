@@ -7,8 +7,8 @@
 
     <string name="server_error_message">Error occurred while calling server API.</string>
     <string name="author_title">About Author</string>
-    <string name="author_description_header">MY DESCRIPTION</string>
-    <string name="email_header">MY EMAIL</string>
+    <string name="author_description_header">My Description</string>
+    <string name="email_header">My Email</string>
     <string name="retry">Retry</string>
 
     <string name="education_list_title">Education</string>
