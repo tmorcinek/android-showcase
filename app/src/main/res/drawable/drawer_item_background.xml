@@ -1,6 +1,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@color/divider" android:state_selected="true" />
-    <item android:drawable="@color/divider" android:state_pressed="true" />
-    <item android:drawable="@color/divider" android:state_activated="true" />
+    <item android:drawable="@color/drawer_background" android:state_selected="true" />
+    <item android:drawable="@color/drawer_item_highlighted" android:state_pressed="true" />
+    <item android:drawable="@color/drawer_item_highlighted" android:state_activated="true" />
     <item android:drawable="@android:color/transparent" />
 </selector>

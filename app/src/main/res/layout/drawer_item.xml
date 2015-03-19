@@ -6,5 +6,8 @@
     android:textAppearance="?android:attr/textAppearanceListItemSmall"
     android:background="@drawable/drawer_item_background"
     android:padding="@dimen/text_vertical_margin"
-    android:textColor="@color/primary_dark"
+    android:textColor="@color/text"
+    android:textSize="@dimen/drawer_list_item_text_size"
+    android:drawablePadding="@dimen/horizontal_margin"
+    android:paddingLeft="@dimen/drawer_list_item_text_margin"
     android:gravity="start|center_vertical" />

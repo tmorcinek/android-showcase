@@ -34,7 +34,7 @@ public class DrawerController implements AdapterView.OnItemClickListener {
         this.homeContentController = homeContentController;
         this.drawerLayout = drawerLayout;
 
-        drawerListView = (ListView) activity.findViewById(R.id.left_drawer);
+        drawerListView = (ListView) activity.findViewById(R.id.drawer_list);
         drawerListView.setOnItemClickListener(this);
         setupDrawerListAdapter(activity);
     }
@@ -47,11 +47,11 @@ public class DrawerController implements AdapterView.OnItemClickListener {
 
     private List<DrawerItem> prepareDrawerItemList() {
         ArrayList<DrawerItem> drawerItems = new ArrayList<>();
-        drawerItems.add(new DrawerItem(R.string.author_title, new AuthorFragment()));
-        drawerItems.add(new DrawerItem(R.string.education_list_title, new EducationListFragment()));
-        drawerItems.add(new DrawerItem(R.string.experience_list_title, new ExperienceListFragment()));
-        drawerItems.add(new DrawerItem(R.string.skills_list_title, new SkillsListFragment()));
-        drawerItems.add(new DrawerItem(R.string.location_title, new LocationFragment()));
+        drawerItems.add(new DrawerItem(R.string.author_title, R.drawable.ic_action_person, new AuthorFragment()));
+        drawerItems.add(new DrawerItem(R.string.education_list_title, R.drawable.ic_action_storage, new EducationListFragment()));
+        drawerItems.add(new DrawerItem(R.string.experience_list_title, R.drawable.ic_action_cloud, new ExperienceListFragment()));
+        drawerItems.add(new DrawerItem(R.string.skills_list_title, R.drawable.ic_action_important, new SkillsListFragment()));
+        drawerItems.add(new DrawerItem(R.string.location_title, R.drawable.ic_action_place, new LocationFragment()));
         return drawerItems;
     }
 

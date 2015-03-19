@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:background="@color/text_white">
+        android:background="@color/background">
 
         <include
             layout="@layout/toolbar"
@@ -28,14 +28,16 @@
 
             <!-- The navigation drawer -->
             <ListView
-                android:id="@+id/left_drawer"
-                android:layout_width="240dp"
+                android:id="@+id/drawer_list"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
+                android:layout_marginRight="@dimen/drawer_margin"
+                android:layout_marginEnd="@dimen/drawer_margin"
                 android:choiceMode="singleChoice"
-                android:divider="@color/primary_dark"
-                android:dividerHeight="0.2dp"
-                android:background="@android:color/white" />
+                android:divider="@android:color/transparent"
+                android:dividerHeight="0dp"
+                android:background="@color/drawer_background" />
         </android.support.v4.widget.DrawerLayout>
     </LinearLayout>
 </FrameLayout>

@@ -21,7 +21,7 @@ public class DrawerListAdapter extends AbstractListAdapter<DrawerItem> {
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
         if (view == null) {
-            view = getLayoutInflater().inflate(R.layout.drawer_item, null);
+            view = getLayoutInflater().inflate(R.layout.drawer_item, parent, false);
             ViewHolder viewHolder = new ViewHolder();
             viewHolder.textView = (TextView) view;
             view.setTag(viewHolder);
@@ -33,7 +33,7 @@ public class DrawerListAdapter extends AbstractListAdapter<DrawerItem> {
     private void initializeViews(DrawerItem drawerItem, ViewHolder holder) {
         holder.textView.setText(drawerItem.getTitle());
         if (drawerItem.getIcon() != null) {
-            holder.textView.setCompoundDrawables(context.getResources().getDrawable(drawerItem.getIcon()), null, null, null);
+            holder.textView.setCompoundDrawablesWithIntrinsicBounds(drawerItem.getIcon(), 0, 0, 0);
         }
     }
 

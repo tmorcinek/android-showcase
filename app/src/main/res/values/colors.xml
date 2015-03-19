@@ -8,16 +8,22 @@
     <color name="accent_dark">#C2185B</color>
 
     <color name="background">#EEEEEE</color>
-    <color name="divider">#DADADA</color>
+
+    <color name="drawer_background">#FAFAFA</color>
+    <color name="drawer_item_highlighted">#E8E8E8</color>
+
 
     <!-- dark text colors -->
-    <color name="text">#202020</color>`
-    <color name="text_secondary">#727272</color>
-    <color name="text_disabled">#B8B8B8</color>
+    <color name="text">#DD000000</color>`
+    <color name="text_secondary">#89000000</color>`
+    <color name="text_disabled">#42000000</color>`
+    <color name="text_divider">#1E000000</color>`
 
     <!-- light text colors -->
-    <color name="text_white">#FFFFFF</color>
-
+    <color name="text_white">#FEFEFE</color>
+    <color name="text_white_highlighted">#FFFFFF</color>
+    <color name="text_white_disabled">#4CFFFFFF</color>
+    <color name="text_white_secondary">#B2FFFFFF</color>
 
     <color name="cards">#FAFAFA</color>
 
