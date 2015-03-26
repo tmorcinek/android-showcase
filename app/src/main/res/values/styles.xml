@@ -49,13 +49,8 @@
     </style>
 
     <style name="DrawerItem">
-        <item name="android:background">@drawable/drawer_item_background</item>
-        <item name="android:padding">@dimen/text_vertical_margin</item>
         <item name="android:textColor">@color/text</item>
         <item name="android:textSize">@dimen/drawer_list_item_text_size</item>
-        <item name="android:drawablePadding">@dimen/horizontal_margin</item>
-        <item name="android:paddingLeft">@dimen/drawer_list_item_text_margin</item>
-        <item name="android:gravity">start|center_vertical</item>
     </style>
 
 </resources>
