@@ -24,6 +24,7 @@ public class NetworkCallback<T> implements Callback<T> {
 
     public void cancel() {
         responseListener = null;
+        postExecuteWithSuccess(false);
         progressControllers = new ProgressController[0];
     }
 
