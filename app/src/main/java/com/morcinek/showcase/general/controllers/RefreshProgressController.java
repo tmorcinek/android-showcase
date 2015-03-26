@@ -28,7 +28,12 @@ public class RefreshProgressController implements ProgressController {
         updateSwipeRefreshLayout(false);
     }
 
-    private void updateSwipeRefreshLayout(boolean started) {
-        swipeRefreshLayout.setRefreshing(started);
+    private void updateSwipeRefreshLayout(final boolean started) {
+        swipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                swipeRefreshLayout.setRefreshing(started);
+            }
+        });
     }
 }
