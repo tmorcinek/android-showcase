@@ -1,11 +1,7 @@
 package com.morcinek.showcase.general.handlers;
 
 import android.app.Activity;
-import android.app.Notification;
-import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.general.network.error.ErrorHandler;
