@@ -3,11 +3,4 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:minHeight="?android:attr/listPreferredItemHeightSmall"
-    android:textAppearance="?android:attr/textAppearanceListItemSmall"
-    android:background="@drawable/drawer_item_background"
-    android:padding="@dimen/text_vertical_margin"
-    android:textColor="@color/text"
-    android:textSize="@dimen/drawer_list_item_text_size"
-    android:drawablePadding="@dimen/horizontal_margin"
-    android:paddingLeft="@dimen/drawer_list_item_text_margin"
-    android:gravity="start|center_vertical" />
+    style="@style/DrawerItem" />
