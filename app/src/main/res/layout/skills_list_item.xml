@@ -25,7 +25,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/ListItemSubtitle"
-            android:textColor="@color/primary_text_color"
             android:maxLines="1"
             android:ellipsize="end"/>
     </LinearLayout>
