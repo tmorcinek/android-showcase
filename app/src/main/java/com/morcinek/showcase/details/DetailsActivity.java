@@ -7,6 +7,8 @@ import android.view.View;
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.education.details.EducationDetailsFragment;
 import com.morcinek.showcase.education.model.Education;
+import com.morcinek.showcase.experience.details.ExperienceDetailsFragment;
+import com.morcinek.showcase.experience.model.Experience;
 import com.morcinek.showcase.general.dagger.components.ShowcaseActivity;
 import com.morcinek.showcase.home.HomeContentController;
 
@@ -31,6 +33,8 @@ public class DetailsActivity extends ShowcaseActivity implements View.OnClickLis
         String className = getIntent().getStringExtra(Class.class.getName());
         if (className.equals(EducationDetailsFragment.class.getName())) {
             setupEducationDetailsFragment();
+        } else if (className.equals(ExperienceDetailsFragment.class.getName())) {
+            setupExperienceDetailsFragment();
         }
     }
 
@@ -38,6 +42,12 @@ public class DetailsActivity extends ShowcaseActivity implements View.OnClickLis
         Education education = getIntent().getParcelableExtra(Object.class.getName());
         getSupportActionBar().setTitle(education.getUniversity());
         homeContentController.addFragment(EducationDetailsFragment.newInstance(education));
+    }
+
+    private void setupExperienceDetailsFragment() {
+        Experience experience = getIntent().getParcelableExtra(Object.class.getName());
+        getSupportActionBar().setTitle(experience.getCompanyName());
+        homeContentController.addFragment(ExperienceDetailsFragment.newInstance(experience));
     }
 
     private void setupToolbar() {

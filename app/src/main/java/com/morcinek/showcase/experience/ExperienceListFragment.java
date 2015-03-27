@@ -1,8 +1,12 @@
 package com.morcinek.showcase.experience;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 
 import com.morcinek.showcase.R;
+import com.morcinek.showcase.details.DetailsActivity;
+import com.morcinek.showcase.education.details.EducationDetailsFragment;
+import com.morcinek.showcase.experience.details.ExperienceDetailsFragment;
 import com.morcinek.showcase.general.AbstractListFragment;
 import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
 import com.morcinek.showcase.experience.model.Experience;
@@ -30,7 +34,10 @@ public class ExperienceListFragment extends AbstractListFragment<Experience> {
 
     @Override
     public void onItemClicked(Experience item) {
-        //TODO
+        Intent intent = new Intent(getActivity(), DetailsActivity.class);
+        intent.putExtra(Class.class.getName(), ExperienceDetailsFragment.class.getName());
+        intent.putExtra(Object.class.getName(), item);
+        startActivity(intent);
     }
 
     @Override

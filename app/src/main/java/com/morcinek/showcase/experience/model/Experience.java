@@ -9,7 +9,7 @@ import lombok.Getter;
  * Copyright 2015 Tomasz Morcinek. All rights reserved.
  */
 @Parcelable
-public class Experience {
+public class Experience implements android.os.Parcelable {
 
     @Getter
     private String companyName;

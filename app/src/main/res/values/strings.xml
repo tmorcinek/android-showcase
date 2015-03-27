@@ -25,4 +25,7 @@
     <string name="description_header">Description</string>
     <string name="education_dates_header">Time period</string>
     <string name="website_link">Go to website</string>
+
+    <string name="company_header">Company Name</string>
+    <string name="position_header">Position</string>
 </resources>

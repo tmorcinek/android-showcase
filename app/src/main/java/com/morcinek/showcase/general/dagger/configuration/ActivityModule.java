@@ -4,6 +4,7 @@ import com.morcinek.showcase.author.AuthorFragment;
 import com.morcinek.showcase.details.DetailsActivity;
 import com.morcinek.showcase.education.details.EducationDetailsFragment;
 import com.morcinek.showcase.experience.ExperienceListFragment;
+import com.morcinek.showcase.experience.details.ExperienceDetailsFragment;
 import com.morcinek.showcase.general.dagger.components.ShowcaseActivity;
 import com.morcinek.showcase.education.EducationListFragment;
 import com.morcinek.showcase.general.controllers.ProgressBarController;
@@ -29,6 +30,7 @@ import dagger.Provides;
                 EducationListFragment.class,
                 EducationDetailsFragment.class,
                 ExperienceListFragment.class,
+                ExperienceDetailsFragment.class,
                 SkillsListFragment.class,
                 LocationFragment.class,
                 DetailsActivity.class,
