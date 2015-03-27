@@ -6,9 +6,11 @@
         <item name="android:textColor">@color/text_secondary</item>
     </style>
 
-    <style name="SectionHeader" parent="HeaderText">
+    <style name="SectionHeader">
         <item name="android:layout_marginTop">@dimen/header_bottom_margin</item>
         <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primary_dark</item>
         <item name="android:textAllCaps">true</item>
     </style>
 
