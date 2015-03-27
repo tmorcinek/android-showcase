@@ -1,23 +1,15 @@
 package com.morcinek.showcase.education.details;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.home.navigation.ToolbarHostFragment;
+import com.morcinek.showcase.details.AbstractDetailsFragment;
 import com.morcinek.showcase.education.model.Education;
 
-public class EducationDetailsFragment extends ToolbarHostFragment implements View.OnClickListener {
-
-    private Education education;
-
-    private LinearLayout detailsContainer;
+public class EducationDetailsFragment extends AbstractDetailsFragment<Education> implements View.OnClickListener {
 
     @Override
     protected int getLayoutResourceId() {
@@ -25,70 +17,35 @@ public class EducationDetailsFragment extends ToolbarHostFragment implements Vie
     }
 
     @Override
-    public int getColor() {
-        return R.color.accent;
-    }
-
-    @Override
-    public String getTitle() {
-        return getString(R.string.education_details_title);
-    }
-
-    @SuppressLint("ValidFragment")
-    private EducationDetailsFragment() {
-        super();
-    }
-
-    public static EducationDetailsFragment newInstance(Education education) {
-        EducationDetailsFragment fragment = new EducationDetailsFragment();
-        Bundle args = new Bundle();
-        args.putParcelable(Education.class.getName(), education);
-        fragment.setArguments(args);
-        return fragment;
+    protected String getTitle() {
+        return getData().getUniversity();
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Bundle arguments = getArguments();
-        if (arguments != null) {
-            education = arguments.getParcelable(Education.class.getName());
-        }
-
-        setupTextViews(view);
+        setupTextViews(view, getData());
         setupLinkButton(view);
-
-        detailsContainer = (LinearLayout) view.findViewById(R.id.details_container);
-        for (int i = 1; i < detailsContainer.getChildCount(); i++) {
-            View rowView = detailsContainer.getChildAt(i);
-            rowView.animate().setStartDelay(200 + i * 30).scaleX(1).scaleY(1);
-        }
     }
 
     private void setupLinkButton(View view) {
         view.findViewById(R.id.link_button).setOnClickListener(this);
     }
 
-    private void setupTextViews(View view) {
+    private void setupTextViews(View view, Education education) {
         setupTextViewWithText(view, R.id.title, education.getUniversity());
         setupTextViewWithText(view, R.id.speciality, education.getSpeciality());
         setupTextViewWithText(view, R.id.description, education.getDescription());
         setupTextViewWithText(view, R.id.dates, education.getDates());
     }
 
-    private void setupTextViewWithText(View view, int resourceId, String text) {
-        ((TextView) view.findViewById(resourceId)).setText(text);
-    }
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.link_button:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(education.getLink().getUrl())));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getData().getLink().getUrl())));
                 break;
         }
     }
-
-
 }

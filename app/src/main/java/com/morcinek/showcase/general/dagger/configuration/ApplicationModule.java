@@ -5,6 +5,8 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.morcinek.showcase.BuildConfig;
+import com.morcinek.showcase.details.provider.DetailsFragmentProvider;
+import com.morcinek.showcase.details.provider.FragmentsProvider;
 import com.morcinek.showcase.general.network.api.ApiService;
 import com.morcinek.showcase.general.network.requesters.AuthorRequester;
 import com.morcinek.showcase.general.network.requesters.EducationsRequester;
@@ -72,5 +74,10 @@ public class ApplicationModule {
     @Provides
     LocationRequester provideLocationRequester(ApiService apiService) {
         return new LocationRequester(apiService);
+    }
+
+    @Provides
+    FragmentsProvider provideFragmentsProvider() {
+        return new DetailsFragmentProvider();
     }
 }

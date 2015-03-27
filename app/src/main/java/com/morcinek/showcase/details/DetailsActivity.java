@@ -5,10 +5,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.education.details.EducationDetailsFragment;
-import com.morcinek.showcase.education.model.Education;
-import com.morcinek.showcase.experience.details.ExperienceDetailsFragment;
-import com.morcinek.showcase.experience.model.Experience;
+import com.morcinek.showcase.details.provider.FragmentsProvider;
 import com.morcinek.showcase.general.dagger.components.ShowcaseActivity;
 import com.morcinek.showcase.home.HomeContentController;
 
@@ -23,6 +20,9 @@ public class DetailsActivity extends ShowcaseActivity {
     @Inject
     HomeContentController homeContentController;
 
+    @Inject
+    FragmentsProvider fragmentsProvider;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,24 +30,7 @@ public class DetailsActivity extends ShowcaseActivity {
         setContentView(R.layout.details);
 
         setupToolbar();
-        String className = getIntent().getStringExtra(Class.class.getName());
-        if (className.equals(EducationDetailsFragment.class.getName())) {
-            setupEducationDetailsFragment();
-        } else if (className.equals(ExperienceDetailsFragment.class.getName())) {
-            setupExperienceDetailsFragment();
-        }
-    }
-
-    private void setupEducationDetailsFragment() {
-        Education education = getIntent().getParcelableExtra(Object.class.getName());
-        getSupportActionBar().setTitle(education.getUniversity());
-        homeContentController.addFragment(EducationDetailsFragment.newInstance(education));
-    }
-
-    private void setupExperienceDetailsFragment() {
-        Experience experience = getIntent().getParcelableExtra(Object.class.getName());
-        getSupportActionBar().setTitle(experience.getCompanyName());
-        homeContentController.addFragment(ExperienceDetailsFragment.newInstance(experience));
+        homeContentController.addFragment(fragmentsProvider.provideFragment(getIntent().getExtras()));
     }
 
     private void setupToolbar() {

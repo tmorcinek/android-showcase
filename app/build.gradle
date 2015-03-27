@@ -32,16 +32,17 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.android.support:appcompat-v7:22.0.0'
     compile 'com.android.support:cardview-v7:21.0.0'
     compile 'com.android.support:recyclerview-v7:21.0.0'
     compile 'com.makeramen:roundedimageview:1.5.0'
-    compile 'com.google.android.gms:play-services:6.5.87'
+    compile 'com.google.android.gms:play-services:7.0.0'
 
     provided 'pl.mg6.hrisey:hrisey:0.3.1'
 
     compile 'com.squareup.dagger:dagger:1.2.0'
     provided 'com.squareup.dagger:dagger-compiler:1.2.0'
+    compile 'com.google.guava:guava:18.0'
 
     compile 'com.squareup.retrofit:retrofit:1.6.1'
     compile 'com.squareup.okhttp:okhttp:2.2.0'
