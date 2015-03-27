@@ -12,6 +12,7 @@
     <dimen name="button_horizontal_margin">4dp</dimen>
     <dimen name="button_horizontal_padding">8dp</dimen>
     <dimen name="button_elevation">4dp</dimen>
+    <dimen name="button_radius">3dp</dimen>
 
     <dimen name="item_height">46dp</dimen>
     <dimen name="item_padding">8dp</dimen>

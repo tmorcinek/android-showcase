@@ -4,14 +4,17 @@
     <color name="primary">#673AB7</color>
     <color name="primary_dark">#512DA8</color>
     <color name="primary_light">#D1C4E9</color>
-    <color name="accent">#FF4081</color>
-    <color name="accent_dark">#C2185B</color>
+    <color name="accent">#F44336</color>
+    <color name="accent_dark">#B50001</color>
 
     <color name="background">#EEEEEE</color>
 
     <color name="drawer_background">#FAFAFA</color>
     <color name="drawer_item_highlighted">#E8E8E8</color>
 
+    <!-- button -->
+    <color name="button">#2196F3</color>
+    <color name="button_dark">#1976D2</color>
 
     <!-- dark text colors -->
     <color name="text">#DD000000</color>`
