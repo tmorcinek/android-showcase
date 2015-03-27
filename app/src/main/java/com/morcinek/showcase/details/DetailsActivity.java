@@ -2,7 +2,7 @@ package com.morcinek.showcase.details;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.view.MenuItem;
 
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.education.details.EducationDetailsFragment;
@@ -18,7 +18,7 @@ import javax.inject.Inject;
  * Created by Tomasz Morcinek.
  * Copyright (c) 2015 SportingBet. All rights reserved.
  */
-public class DetailsActivity extends ShowcaseActivity implements View.OnClickListener {
+public class DetailsActivity extends ShowcaseActivity {
 
     @Inject
     HomeContentController homeContentController;
@@ -51,15 +51,19 @@ public class DetailsActivity extends ShowcaseActivity implements View.OnClickLis
     }
 
     private void setupToolbar() {
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(this);
     }
 
     @Override
-    public void onClick(View v) {
-        onBackPressed();
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
