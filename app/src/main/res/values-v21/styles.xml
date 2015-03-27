@@ -2,7 +2,7 @@
 <resources>
 
     <style name="ActiveButton" parent="BaseButton">
-        <item name="android:background">@drawable/active_button_background</item>
+        <item name="android:background">@drawable/active_button_selector</item>
         <item name="android:elevation">@dimen/button_elevation</item>
     </style>
 </resources>

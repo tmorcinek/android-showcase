@@ -45,7 +45,7 @@
     </style>
 
     <style name="ActiveButton" parent="BaseButton">
-        <item name="android:background">@drawable/active_button_background</item>
+        <item name="android:background">@drawable/active_button_selector</item>
     </style>
 
     <style name="DrawerItem">
