@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingRight="@dimen/horizontal_margin"
+    android:paddingLeft="@dimen/horizontal_margin"
+    android:paddingBottom="@dimen/vertical_margin">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/link_button"
+        android:overScrollMode="never"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:id="@+id/details_container"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/vertical_margin"
+            android:paddingBottom="@dimen/vertical_margin">
+
+            <TextView
+                android:text="@string/skill_title_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/SectionHeader"
+                android:layout_marginTop="0dp" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/DefaultText" />
+
+            <TextView
+                android:text="@string/description_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/SectionHeader" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/DefaultText" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/link_button"
+        android:text="@string/website_link"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        style="@style/ActiveButton" />
+</RelativeLayout>

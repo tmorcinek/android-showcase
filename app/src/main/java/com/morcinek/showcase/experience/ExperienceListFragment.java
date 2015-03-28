@@ -33,14 +33,6 @@ public class ExperienceListFragment extends AbstractListFragment<Experience> {
     }
 
     @Override
-    public void onItemClicked(Experience item) {
-        Intent intent = new Intent(getActivity(), DetailsActivity.class);
-        intent.putExtra(Class.class.getName(), ExperienceDetailsFragment.class.getName());
-        intent.putExtra(Object.class.getName(), item);
-        startActivity(intent);
-    }
-
-    @Override
     public void onRefresh() {
         networkRequester.requestExperience();
     }

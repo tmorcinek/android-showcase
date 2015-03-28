@@ -2,6 +2,8 @@ package com.morcinek.showcase.general.dagger.configuration;
 
 import com.morcinek.showcase.author.AuthorFragment;
 import com.morcinek.showcase.details.DetailsActivity;
+import com.morcinek.showcase.details.provider.DetailsFragmentProvider;
+import com.morcinek.showcase.details.provider.FragmentsProvider;
 import com.morcinek.showcase.education.details.EducationDetailsFragment;
 import com.morcinek.showcase.experience.ExperienceListFragment;
 import com.morcinek.showcase.experience.details.ExperienceDetailsFragment;
@@ -16,6 +18,7 @@ import com.morcinek.showcase.home.HomeActivity;
 import com.morcinek.showcase.general.network.error.ErrorHandler;
 import com.morcinek.showcase.location.LocationFragment;
 import com.morcinek.showcase.skills.SkillsListFragment;
+import com.morcinek.showcase.skills.details.SkillDetailsFragment;
 
 import dagger.Module;
 import dagger.Provides;
@@ -32,6 +35,7 @@ import dagger.Provides;
                 ExperienceListFragment.class,
                 ExperienceDetailsFragment.class,
                 SkillsListFragment.class,
+                SkillDetailsFragment.class,
                 LocationFragment.class,
                 DetailsActivity.class,
         },
@@ -69,5 +73,10 @@ public class ActivityModule {
     @Provides
     HomeContentController provideActivityContentController() {
         return new HomeContentController(showcaseActivity);
+    }
+
+    @Provides
+    FragmentsProvider provideFragmentsProvider() {
+        return new DetailsFragmentProvider(showcaseActivity);
     }
 }

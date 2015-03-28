@@ -32,14 +32,6 @@ public class EducationListFragment extends AbstractListFragment<Education> {
     }
 
     @Override
-    public void onItemClicked(Education item) {
-        Intent intent = new Intent(getActivity(), DetailsActivity.class);
-        intent.putExtra(Class.class.getName(), EducationDetailsFragment.class.getName());
-        intent.putExtra(Object.class.getName(), item);
-        startActivity(intent);
-    }
-
-    @Override
     public void onRefresh() {
         networkRequester.requestEducations();
     }

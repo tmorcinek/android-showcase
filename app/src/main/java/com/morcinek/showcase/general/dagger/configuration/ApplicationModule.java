@@ -75,9 +75,4 @@ public class ApplicationModule {
     LocationRequester provideLocationRequester(ApiService apiService) {
         return new LocationRequester(apiService);
     }
-
-    @Provides
-    FragmentsProvider provideFragmentsProvider() {
-        return new DetailsFragmentProvider();
-    }
 }

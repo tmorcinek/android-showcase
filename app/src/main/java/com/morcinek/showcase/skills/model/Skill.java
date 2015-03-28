@@ -9,7 +9,7 @@ import lombok.Getter;
  * Copyright 2015 Tomasz Morcinek. All rights reserved.
  */
 @Parcelable
-public class Skill {
+public class Skill implements android.os.Parcelable {
 
     @Getter
     private String title;

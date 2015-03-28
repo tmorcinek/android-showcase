@@ -30,11 +30,6 @@ public class SkillsListFragment extends AbstractListFragment<Skill> {
     }
 
     @Override
-    public void onItemClicked(Skill item) {
-        //TODO
-    }
-
-    @Override
     public void onRefresh() {
         networkRequester.requestSkills();
     }

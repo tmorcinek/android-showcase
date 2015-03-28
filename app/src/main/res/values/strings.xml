@@ -28,4 +28,6 @@
 
     <string name="company_header">Company Name</string>
     <string name="position_header">Position</string>
+
+    <string name="skill_title_header">Skill</string>
 </resources>

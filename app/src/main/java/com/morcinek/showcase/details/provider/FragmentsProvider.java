@@ -1,6 +1,8 @@
 package com.morcinek.showcase.details.provider;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 
 /**
@@ -10,4 +12,6 @@ import android.support.v4.app.Fragment;
 public interface FragmentsProvider {
 
     Fragment provideFragment(Bundle bundle);
+
+    Intent provideFragmentIntent(Parcelable object);
 }
