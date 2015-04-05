@@ -14,6 +14,6 @@ public class LocationRequester extends NetworkRequester<Location> {
     }
 
     public void requestLocation() {
-        apiService.getLocation(networkCallback);
+        apiService.getLocation(provideCallback());
     }
 }

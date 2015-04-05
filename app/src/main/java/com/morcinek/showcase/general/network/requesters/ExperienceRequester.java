@@ -16,6 +16,6 @@ public class ExperienceRequester extends NetworkRequester<List<Experience>> {
     }
 
     public void requestExperience() {
-        apiService.getExperience(networkCallback);
+        apiService.getExperience(provideCallback());
     }
 }

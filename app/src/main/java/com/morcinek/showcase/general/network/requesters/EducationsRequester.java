@@ -16,6 +16,6 @@ public class EducationsRequester extends NetworkRequester<List<Education>> {
     }
 
     public void requestEducations() {
-        apiService.getEducation(networkCallback);
+        apiService.getEducation(provideCallback());
     }
 }

@@ -14,6 +14,6 @@ public class AuthorRequester extends NetworkRequester<Author> {
     }
 
     public void requestAuthor() {
-        apiService.getAuthor(networkCallback);
+        apiService.getAuthor(provideCallback());
     }
 }

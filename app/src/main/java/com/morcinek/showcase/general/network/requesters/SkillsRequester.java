@@ -16,6 +16,6 @@ public class SkillsRequester extends NetworkRequester<List<Skill>> {
     }
 
     public void requestSkills() {
-        apiService.getSkills(networkCallback);
+        apiService.getSkills(provideCallback());
     }
 }

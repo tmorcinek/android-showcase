@@ -30,4 +30,5 @@
     <string name="position_header">Position</string>
 
     <string name="skill_title_header">Skill</string>
+    <string name="refresh_action">Refresh</string>
 </resources>
