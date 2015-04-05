@@ -19,7 +19,7 @@ public class ExperienceDetailsFragment extends AbstractDetailsFragment<Experienc
 
     @Override
     protected String getTitle() {
-        return getData().getCompanyName();
+        return getData().getPosition();
     }
 
     @Override

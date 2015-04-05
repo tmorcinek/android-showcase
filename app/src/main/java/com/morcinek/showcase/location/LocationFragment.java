@@ -52,7 +52,12 @@ public class LocationFragment extends SupportMapFragment implements ToolbarHost,
         super.onViewCreated(view, savedInstanceState);
         ((ShowcaseActivity) getActivity()).inject(this);
         locationRequester.initialize(this, progressBarController);
-        getMapAsync(this);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getMapAsync(LocationFragment.this);
     }
 
     @Override
