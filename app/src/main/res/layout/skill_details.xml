@@ -50,7 +50,7 @@
 
     <Button
         android:id="@+id/link_button"
-        android:text="@string/website_link"
+        android:text="@string/see_example"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"

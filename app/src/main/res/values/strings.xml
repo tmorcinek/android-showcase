@@ -31,4 +31,5 @@
 
     <string name="skill_title_header">Skill</string>
     <string name="refresh_action">Refresh</string>
+    <string name="see_example">See Example</string>
 </resources>
