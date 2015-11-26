@@ -1,64 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/content_layout"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingRight="@dimen/horizontal_margin"
-        android:paddingLeft="@dimen/horizontal_margin"
-        android:paddingTop="@dimen/vertical_margin"
-        android:paddingBottom="@dimen/vertical_margin"
-        android:gravity="center_horizontal"
-        android:visibility="gone">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/text_vertical_margin"
-            style="@style/HeaderText" />
-
-        <com.makeramen.RoundedImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/avatar"
-            app:riv_corner_radius="30dip"
-            app:riv_border_width="1dp"
-            app:riv_border_color="@color/primary_dark"
-            app:riv_mutate_background="true"
-            app:riv_oval="true"
-            android:layout_margin="@dimen/vertical_margin" />
-
-
-        <TextView
-            android:text="@string/author_description_header"
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/SectionHeader" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/DefaultText" />
+            <LinearLayout
+                android:id="@+id/content_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/vertical_margin"
+                android:paddingLeft="@dimen/horizontal_margin"
+                android:paddingRight="@dimen/horizontal_margin"
+                android:paddingTop="@dimen/vertical_margin"
+                android:visibility="gone">
 
-        <TextView
-            android:text="@string/email_header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/SectionHeader" />
+                <TextView
+                    android:id="@+id/name"
+                    style="@style/HeaderText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/text_vertical_margin" />
 
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/DefaultText" />
+                <com.makeramen.RoundedImageView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_margin="@dimen/vertical_margin"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/avatar"
+                    app:riv_border_color="@color/primary_dark"
+                    app:riv_border_width="1dp"
+                    app:riv_corner_radius="30dip"
+                    app:riv_mutate_background="true"
+                    app:riv_oval="true" />
 
-    </LinearLayout>
-</ScrollView>
+
+                <TextView
+                    style="@style/SectionHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/author_description_header" />
+
+                <TextView
+                    android:id="@+id/description"
+                    style="@style/DefaultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    style="@style/SectionHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email_header" />
+
+                <TextView
+                    android:id="@+id/email"
+                    style="@style/DefaultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>

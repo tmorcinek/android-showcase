@@ -2,6 +2,8 @@ package com.morcinek.showcase.author;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.author.model.Author;
 import com.morcinek.showcase.general.controllers.ProgressBarController;
+import com.morcinek.showcase.general.controllers.RefreshProgressController;
 import com.morcinek.showcase.general.handlers.RetryErrorHandler;
 import com.morcinek.showcase.general.network.requesters.AuthorRequester;
 import com.morcinek.showcase.general.network.response.NetworkResponseListener;
@@ -20,7 +23,7 @@ import javax.inject.Inject;
 
 import retrofit.RetrofitError;
 
-public class AuthorFragment extends ToolbarHostFragment implements NetworkResponseListener<Author>, Runnable {
+public class AuthorFragment extends ToolbarHostFragment implements NetworkResponseListener<Author>, Runnable, OnRefreshListener {
 
     @Inject
     AuthorRequester authorRequester;
@@ -29,7 +32,12 @@ public class AuthorFragment extends ToolbarHostFragment implements NetworkRespon
     RetryErrorHandler errorHandler;
 
     @Inject
-    ProgressBarController progressBarController;
+    protected RefreshProgressController progressController;
+
+    @Inject
+    protected ProgressBarController progressBarController;
+
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected int getLayoutResourceId() {
@@ -50,24 +58,33 @@ public class AuthorFragment extends ToolbarHostFragment implements NetworkRespon
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        authorRequester.initialize(this, progressBarController);
+        authorRequester.initialize(this, progressController, progressBarController);
+
         onRefresh();
+
+        setupSwipeRefreshLayout(view);
 
         errorHandler.registerAction(this);
         errorHandler.registerViewGroup((android.view.ViewGroup) view);
+    }
+
+    private void setupSwipeRefreshLayout(View view) {
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
+        swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.accent));
+        swipeRefreshLayout.setOnRefreshListener(this);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.author, menu);
         super.onCreateOptionsMenu(menu, inflater);
-        progressBarController.setMenuItem(menu.findItem(R.id.action_refresh));
+//        progressBarController.setMenuItem(menu.findItem(R.id.action_refresh));
     }
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        progressBarController.setMenuItem(menu.findItem(R.id.action_refresh));
+//        progressBarController.setMenuItem(menu.findItem(R.id.action_refresh));
     }
 
     @Override
@@ -81,7 +98,7 @@ public class AuthorFragment extends ToolbarHostFragment implements NetworkRespon
         }
     }
 
-    private void onRefresh() {
+    public void onRefresh() {
         authorRequester.requestAuthor();
     }
 
@@ -105,6 +122,7 @@ public class AuthorFragment extends ToolbarHostFragment implements NetworkRespon
 
     @Override
     public void run() {
+        swipeRefreshLayout.setRefreshing(true);
         onRefresh();
     }
 
