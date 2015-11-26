@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.mikepenz.aboutlibraries.LibsBuilder;
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.author.AuthorFragment;
 import com.morcinek.showcase.education.EducationListFragment;
@@ -21,28 +22,36 @@ import java.util.List;
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
-public class DrawerController implements AdapterView.OnItemClickListener {
+public class DrawerController implements AdapterView.OnItemClickListener, View.OnClickListener {
 
     public static final int HIDE_DRAWER_LIST_DELAY_MILLIS = 150;
+
 
     private final HomeContentController homeContentController;
     private final DrawerLayout drawerLayout;
 
     private final ListView drawerListView;
+    private final View drawerContent;
+    private final LibsBuilder libsBuilder;
 
     public DrawerController(FragmentActivity activity, HomeContentController homeContentController, DrawerLayout drawerLayout) {
         this.homeContentController = homeContentController;
         this.drawerLayout = drawerLayout;
 
-        drawerListView = (ListView) activity.findViewById(R.id.drawer_list);
-        drawerListView.setOnItemClickListener(this);
+        drawerContent = activity.findViewById(R.id.drawer_content);
+        drawerListView = (ListView) drawerContent.findViewById(R.id.drawer_list);
+
+        libsBuilder = new LibsBuilder().withFields(R.string.class.getFields()).withActivityTheme(R.style.BaseTheme).withActivityTitle(activity.getString(R.string.libraries_text));
+
         setupDrawerListAdapter(activity);
+        setupDrawerFooter();
     }
 
     private void setupDrawerListAdapter(FragmentActivity activity) {
         DrawerListAdapter drawerListAdapter = new DrawerListAdapter(activity);
         drawerListAdapter.setList(prepareDrawerItemList());
         drawerListView.setAdapter(drawerListAdapter);
+        drawerListView.setOnItemClickListener(this);
     }
 
     private List<DrawerItem> prepareDrawerItemList() {
@@ -66,7 +75,7 @@ public class DrawerController implements AdapterView.OnItemClickListener {
 
             @Override
             public void run() {
-                drawerLayout.closeDrawer(drawerListView);
+                drawerLayout.closeDrawer(drawerContent);
             }
         }, HIDE_DRAWER_LIST_DELAY_MILLIS);
     }
@@ -78,5 +87,14 @@ public class DrawerController implements AdapterView.OnItemClickListener {
 
     public void showDefaultFragment() {
         selectItemAtPosition((DrawerItem) drawerListView.getItemAtPosition(0), 0);
+    }
+
+    private void setupDrawerFooter() {
+        drawerContent.findViewById(R.id.drawer_footer).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        libsBuilder.start(v.getContext());
     }
 }

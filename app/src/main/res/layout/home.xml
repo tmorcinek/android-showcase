@@ -4,10 +4,10 @@
     android:background="@color/primary_dark">
 
     <LinearLayout
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:background="@color/background">
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
 
         <include
             layout="@layout/toolbar"
@@ -27,17 +27,29 @@
                 android:layout_height="match_parent" />
 
             <!-- The navigation drawer -->
-            <ListView
-                android:id="@+id/drawer_list"
+            <LinearLayout
+                android:id="@+id/drawer_content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
-                android:layout_marginRight="@dimen/drawer_margin"
                 android:layout_marginEnd="@dimen/drawer_margin"
-                android:choiceMode="singleChoice"
-                android:divider="@android:color/transparent"
-                android:dividerHeight="0dp"
-                android:background="@color/drawer_background" />
+                android:layout_marginRight="@dimen/drawer_margin"
+                android:background="@color/drawer_background"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/drawer_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:choiceMode="singleChoice"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="0dp" />
+
+                <include
+                    android:id="@+id/drawer_footer"
+                    layout="@layout/drawer_footer" />
+            </LinearLayout>
         </android.support.v4.widget.DrawerLayout>
     </LinearLayout>
 </FrameLayout>

@@ -11,6 +11,8 @@
 
     <color name="drawer_background">#FAFAFA</color>
     <color name="drawer_item_highlighted">#E8E8E8</color>
+    <color name="drawer_footer">#CCCCCC</color>
+    <color name="drawer_footer_highlighted">#A6A6A6</color>
 
     <!-- button -->
     <color name="button">#2196F3</color>

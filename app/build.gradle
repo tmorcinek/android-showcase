@@ -32,7 +32,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.0.0'
+    compile 'com.android.support:appcompat-v7:21.0.0'
     compile 'com.android.support:cardview-v7:21.0.0'
     compile 'com.android.support:recyclerview-v7:21.0.0'
     compile 'com.makeramen:roundedimageview:1.5.0'
@@ -49,6 +49,10 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.2.0'
 
     compile 'com.nispok:snackbar:2.10.2'
+
+    compile('com.mikepenz:aboutlibraries:5.0.9@aar') {
+        transitive = true
+    }
 
     testCompile('junit:junit:4.12') {
         exclude module: 'hamcrest-core'
