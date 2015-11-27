@@ -2,6 +2,9 @@ package com.morcinek.showcase.location;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -48,6 +51,36 @@ public class LocationFragment extends SupportMapFragment implements ToolbarHost,
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.location, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+        progressBarController.setMenuItem(menu.findItem(R.id.action_refresh));
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        progressBarController.setMenuItem(menu.findItem(R.id.action_refresh));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_refresh:
+                onRefresh();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ((ShowcaseActivity) getActivity()).inject(this);
@@ -57,11 +90,15 @@ public class LocationFragment extends SupportMapFragment implements ToolbarHost,
     @Override
     public void onResume() {
         super.onResume();
-        getMapAsync(LocationFragment.this);
+        getMapAsync(this);
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        onRefresh();
+    }
+
+    private void onRefresh() {
         locationRequester.requestLocation();
     }
 
