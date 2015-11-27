@@ -106,7 +106,6 @@ public abstract class AbstractListFragment<T extends Parcelable> extends Toolbar
         Animation fadeInAnimation = AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_in_left);
         fadeInAnimation.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
         recyclerView.setLayoutAnimation(new LayoutAnimationController(fadeInAnimation));
-        recyclerView.startLayoutAnimation();
     }
 
     @Override

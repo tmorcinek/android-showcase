@@ -4,15 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.author.model.Author;
-import com.morcinek.showcase.general.controllers.ProgressBarController;
+import com.morcinek.showcase.general.controllers.ContentProgressController;
 import com.morcinek.showcase.general.controllers.RefreshProgressController;
 import com.morcinek.showcase.general.handlers.RetryErrorHandler;
 import com.morcinek.showcase.general.network.requesters.AuthorRequester;
@@ -35,7 +32,7 @@ public class AuthorFragment extends ToolbarHostFragment implements NetworkRespon
     protected RefreshProgressController progressController;
 
     @Inject
-    protected ProgressBarController progressBarController;
+    protected ContentProgressController progressBarController;
 
     private SwipeRefreshLayout swipeRefreshLayout;
 
@@ -47,12 +44,6 @@ public class AuthorFragment extends ToolbarHostFragment implements NetworkRespon
     @Override
     public String getTitle() {
         return getString(R.string.author_title);
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
     }
 
     @Override
@@ -72,30 +63,6 @@ public class AuthorFragment extends ToolbarHostFragment implements NetworkRespon
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.accent));
         swipeRefreshLayout.setOnRefreshListener(this);
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.author, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-//        progressBarController.setMenuItem(menu.findItem(R.id.action_refresh));
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-//        progressBarController.setMenuItem(menu.findItem(R.id.action_refresh));
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_refresh:
-                onRefresh();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
     public void onRefresh() {

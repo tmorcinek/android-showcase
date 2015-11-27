@@ -7,6 +7,7 @@ import com.morcinek.showcase.details.provider.FragmentsProvider;
 import com.morcinek.showcase.education.details.EducationDetailsFragment;
 import com.morcinek.showcase.experience.ExperienceListFragment;
 import com.morcinek.showcase.experience.details.ExperienceDetailsFragment;
+import com.morcinek.showcase.general.controllers.ContentProgressController;
 import com.morcinek.showcase.general.dagger.components.ShowcaseActivity;
 import com.morcinek.showcase.education.EducationListFragment;
 import com.morcinek.showcase.general.controllers.ProgressBarController;
@@ -68,6 +69,11 @@ public class ActivityModule {
     @Provides
     RefreshProgressController provideRefreshProgressController() {
         return new RefreshProgressController(showcaseActivity);
+    }
+
+    @Provides
+    ContentProgressController provideContentProgressController() {
+        return new ContentProgressController(showcaseActivity);
     }
 
     @Provides

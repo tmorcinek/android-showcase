@@ -52,6 +52,6 @@ public abstract class AbstractRecyclerViewAdapter<T, H extends RecyclerView.View
 
     public interface OnItemClickListener<T> {
 
-        public void onItemClicked(T item);
+        void onItemClicked(T item);
     }
 }

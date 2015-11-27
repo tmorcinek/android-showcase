@@ -1,7 +1,6 @@
 package com.morcinek.showcase.general.controllers;
 
 import android.app.Activity;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -12,40 +11,28 @@ import com.morcinek.showcase.general.network.response.ProgressController;
 /**
  * Copyright 2015 Tomasz Morcinek. All rights reserved.
  */
-public class ProgressBarController implements ProgressController {
+public class ContentProgressController implements ProgressController {
 
     private Activity activity;
 
-    private View progressBar;
-    private MenuItem menuItem;
+    private View contentLayout;
 
-    public ProgressBarController(Activity activity) {
+    public ContentProgressController(Activity activity) {
         this.activity = activity;
-        progressBar = activity.findViewById(R.id.progress_bar);
-    }
-
-    public void setMenuItem(MenuItem menuItem) {
-        this.menuItem = menuItem;
+        contentLayout = activity.findViewById(R.id.content_layout);
     }
 
     @Override
     public void preExecute() {
-        progressBar.setVisibility(View.VISIBLE);
-        setMenuItemVisible(false);
     }
 
     @Override
     public void postExecuteWithSuccess(boolean success) {
-        progressBar.setVisibility(View.GONE);
-        setMenuItemVisible(true);
-    }
-
-    private void setMenuItemVisible(boolean success) {
-        if (menuItem != null) {
-            menuItem.setVisible(success);
+        if (success && contentLayout != null && contentLayout.getVisibility() == View.GONE) {
+            contentLayout.setAnimation(prepareAnimationWithId(android.R.anim.fade_in));
+            contentLayout.setVisibility(View.VISIBLE);
         }
     }
-
 
     private Animation prepareAnimationWithId(int animId) {
         return AnimationUtils.loadAnimation(activity, animId);

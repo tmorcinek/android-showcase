@@ -41,6 +41,7 @@ public class HomeActivity extends ShowcaseActivity {
         DrawerController drawerController = new DrawerController(this, homeContentController, drawerLayout);
         if (savedInstanceState == null) {
             drawerController.showDefaultFragment();
+            setTitle(R.string.author_title);
         } else {
             drawerToggle.onDrawerClosed(null);
         }
