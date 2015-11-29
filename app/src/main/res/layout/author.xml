@@ -57,18 +57,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
-                <TextView
-                    style="@style/SectionHeader"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/email_header" />
-
-                <TextView
-                    android:id="@+id/email"
-                    style="@style/DefaultText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
             </LinearLayout>
         </ScrollView>
     </android.support.v4.widget.SwipeRefreshLayout>

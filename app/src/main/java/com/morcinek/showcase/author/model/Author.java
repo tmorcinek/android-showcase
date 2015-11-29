@@ -16,13 +16,4 @@ public class Author {
 
     @Getter
     private String description;
-
-    @Getter
-    private String email;
-
-    @Getter
-    private List<String> telephones;
-
-    @Getter
-    private List<Link> links;
 }

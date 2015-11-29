@@ -73,7 +73,6 @@ public class AuthorFragment extends ToolbarHostFragment implements NetworkRespon
     public void success(Author object) {
         setupTextViewWithText(R.id.name, object.getName());
         setupTextViewWithText(R.id.description, object.getDescription());
-        setupTextViewWithText(R.id.email, object.getEmail());
     }
 
     private void setupTextViewWithText(int resourceName, String value) {
