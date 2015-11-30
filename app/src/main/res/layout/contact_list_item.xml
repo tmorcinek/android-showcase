@@ -18,27 +18,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/drawer_list_item_height"
+        android:layout_height="@dimen/contact_list_item_height"
         android:layout_centerVertical="true"
-        android:gravity="center_vertical"
         android:layout_marginLeft="@dimen/drawer_list_item_text_margin"
         android:layout_marginStart="@dimen/drawer_list_item_text_margin"
+        android:gravity="center_vertical"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/title"
-            style="@style/DrawerItem"
+            style="@style/ContactItemTitle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/subtitle"
-            style="@style/ListItemSubtitle"
+            style="@style/ContactItemSubtitle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:textSize="9sp" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 </RelativeLayout>

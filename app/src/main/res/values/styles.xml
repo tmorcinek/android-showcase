@@ -55,4 +55,14 @@
         <item name="android:textSize">@dimen/drawer_list_item_text_size</item>
     </style>
 
+    <style name="ContactItemTitle">
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textSize">@dimen/contact_list_title_text_size</item>
+    </style>
+
+    <style name="ContactItemSubtitle">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/contact_list_subtitle_text_size</item>
+    </style>
+
 </resources>

@@ -19,6 +19,11 @@ public class ContactListFragment extends AbstractListFragment<Contact> {
     ContactsRequester networkRequester;
 
     @Override
+    protected int getLayoutResourceId() {
+        return R.layout.contact_list;
+    }
+
+    @Override
     protected AbstractRecyclerViewAdapter<Contact, ? extends RecyclerView.ViewHolder> getCreateListAdapter() {
         return new ContactListAdapter(getActivity());
     }
