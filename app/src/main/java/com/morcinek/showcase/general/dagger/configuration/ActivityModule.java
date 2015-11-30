@@ -1,6 +1,7 @@
 package com.morcinek.showcase.general.dagger.configuration;
 
 import com.morcinek.showcase.author.AuthorFragment;
+import com.morcinek.showcase.contact.ContactListFragment;
 import com.morcinek.showcase.details.DetailsActivity;
 import com.morcinek.showcase.details.provider.DetailsFragmentProvider;
 import com.morcinek.showcase.details.provider.FragmentsProvider;
@@ -39,6 +40,7 @@ import dagger.Provides;
                 SkillDetailsFragment.class,
                 LocationFragment.class,
                 DetailsActivity.class,
+                ContactListFragment.class,
         },
         addsTo = ApplicationModule.class,
         library = true

@@ -6,10 +6,11 @@
     <string name="splash_application_button">Go to Application</string>
 
     <string name="server_error_message">Error occurred while calling server API.</string>
-    <string name="author_title">About Author</string>
+    <string name="author_title">About Me</string>
     <string name="author_description_header">My Description</string>
-    <string name="email_header">My Email</string>
     <string name="retry">Retry</string>
+
+    <string name="contact_title">Contact Me</string>
 
     <string name="education_list_title">Education</string>
     <string name="education_details_title">Education Details</string>
@@ -18,7 +19,7 @@
 
     <string name="experience_list_title">Experience</string>
     <string name="skills_list_title">Skills</string>
-    <string name="location_title">Author Location</string>
+    <string name="location_title">My Current Location</string>
 
     <string name="university_header">University</string>
     <string name="speciality_header">Speciality</string>

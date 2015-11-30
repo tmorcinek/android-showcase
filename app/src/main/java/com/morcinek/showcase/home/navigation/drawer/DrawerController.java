@@ -10,6 +10,7 @@ import android.widget.ListView;
 import com.mikepenz.aboutlibraries.LibsBuilder;
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.author.AuthorFragment;
+import com.morcinek.showcase.contact.ContactListFragment;
 import com.morcinek.showcase.education.EducationListFragment;
 import com.morcinek.showcase.experience.ExperienceListFragment;
 import com.morcinek.showcase.home.HomeContentController;
@@ -61,6 +62,7 @@ public class DrawerController implements AdapterView.OnItemClickListener, View.O
         drawerItems.add(new DrawerItem(R.string.education_list_title, R.drawable.ic_action_storage, new EducationListFragment()));
         drawerItems.add(new DrawerItem(R.string.experience_list_title, R.drawable.ic_action_cloud, new ExperienceListFragment()));
         drawerItems.add(new DrawerItem(R.string.skills_list_title, R.drawable.ic_action_important, new SkillsListFragment()));
+        drawerItems.add(new DrawerItem(R.string.contact_title, R.drawable.ic_action_send_now, new ContactListFragment()));
         return drawerItems;
     }
 

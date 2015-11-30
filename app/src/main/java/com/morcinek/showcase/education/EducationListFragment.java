@@ -1,11 +1,8 @@
 package com.morcinek.showcase.education;
 
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 
 import com.morcinek.showcase.R;
-import com.morcinek.showcase.details.DetailsActivity;
-import com.morcinek.showcase.education.details.EducationDetailsFragment;
 import com.morcinek.showcase.education.model.Education;
 import com.morcinek.showcase.general.AbstractListFragment;
 import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
