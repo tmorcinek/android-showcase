@@ -19,7 +19,7 @@ public class Contact implements android.os.Parcelable {
     private Type type;
 
     public enum Type {
-        Phone, Email, Skype, Line, Website, Play
+        Phone, Email, Skype, Line, Website, Play, Github, Linkedin
     }
 }
 

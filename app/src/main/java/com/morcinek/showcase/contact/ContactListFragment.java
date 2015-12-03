@@ -57,11 +57,13 @@ public class ContactListFragment extends AbstractListFragment<Contact> {
             case Line:
                 invokeLine(contact);
                 break;
-            case Website:
-                invokeWebsite(contact);
-                break;
             case Play:
                 invokePlay(contact);
+                break;
+            case Website:
+            case Github:
+            case Linkedin:
+                invokeWebsite(contact);
                 break;
         }
     }
@@ -110,8 +112,7 @@ public class ContactListFragment extends AbstractListFragment<Contact> {
         PackageManager packageManager = getActivity().getPackageManager();
         try {
             packageManager.getPackageInfo(appPackage, PackageManager.GET_ACTIVITIES);
-        }
-        catch (PackageManager.NameNotFoundException e) {
+        } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
         return true;

@@ -37,4 +37,5 @@
     <string name="libraries_text">Open Source Libraries</string>
 
     <string name="action_mail_subject">Showcase Application Query</string>
+    <string name="action_play_title">Developed Applications</string>
 </resources>
