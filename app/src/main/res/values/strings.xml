@@ -38,4 +38,5 @@
 
     <string name="action_mail_subject">Showcase Application Query</string>
     <string name="action_play_title">Developed Applications</string>
+    <string name="action_line_message">LineId added to clipboard</string>
 </resources>

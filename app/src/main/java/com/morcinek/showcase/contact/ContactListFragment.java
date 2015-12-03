@@ -1,10 +1,12 @@
 package com.morcinek.showcase.contact;
 
-import android.content.Context;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.contact.model.Contact;
@@ -21,6 +23,9 @@ public class ContactListFragment extends AbstractListFragment<Contact> {
     @Getter
     @Inject
     ContactsRequester networkRequester;
+
+    @Inject
+    ClipboardManager clipboardManager;
 
     @Override
     protected int getLayoutResourceId() {
@@ -87,13 +92,8 @@ public class ContactListFragment extends AbstractListFragment<Contact> {
     }
 
     private void invokeLine(Contact contact) {
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_SEND);
-        intent = getActivity().getPackageManager().getLaunchIntentForPackage(
-                "jp.naver.line.android");
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, "youjun");
-        startActivity(intent);
+        clipboardManager.setPrimaryClip(ClipData.newPlainText("LineId", contact.getContent()));
+        Toast.makeText(getActivity(), R.string.action_line_message, Toast.LENGTH_LONG).show();
     }
 
     private void invokeWebsite(Contact contact) {

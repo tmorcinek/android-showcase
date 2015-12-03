@@ -1,6 +1,7 @@
 package com.morcinek.showcase.general.dagger.configuration;
 
 import android.app.Application;
+import android.content.ClipboardManager;
 import android.content.Context;
 
 import com.google.gson.Gson;
@@ -37,6 +38,12 @@ public class ApplicationModule {
     @Singleton
     Context provideApplicationContext() {
         return application;
+    }
+
+    @Provides
+    @Singleton
+    ClipboardManager provideClipboardManager() {
+        return (ClipboardManager) application.getSystemService(Context.CLIPBOARD_SERVICE);
     }
 
     @Provides
