@@ -18,9 +18,6 @@ public class Contact implements android.os.Parcelable {
     @Getter
     private Type type;
 
-    @Getter
-    private boolean active;
-
     public enum Type {
         Phone, Email, Skype, Line, Website, Play
     }

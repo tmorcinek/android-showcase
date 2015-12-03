@@ -35,4 +35,6 @@
     <string name="see_example">See Example</string>
 
     <string name="libraries_text">Open Source Libraries</string>
+
+    <string name="action_mail_subject">Showcase Application Query</string>
 </resources>

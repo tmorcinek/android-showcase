@@ -45,8 +45,11 @@ public class ContactListAdapter extends AbstractRecyclerViewAdapter<Contact, Con
             case Website:
                 return R.drawable.ic_action_web_site;
             case Skype:
+                return R.drawable.ic_action_skype;
             case Line:
+                return R.drawable.ic_action_line;
             case Play:
+                return R.drawable.ic_action_play;
             default:
                 return 0;
         }

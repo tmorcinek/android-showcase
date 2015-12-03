@@ -120,7 +120,7 @@ public abstract class AbstractListFragment<T extends Parcelable> extends Toolbar
     }
 
     @Override
-    public final void onItemClicked(T item) {
+    public void onItemClicked(T item) {
         startActivity(fragmentsProvider.provideFragmentIntent(item));
     }
 
