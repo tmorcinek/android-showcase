@@ -32,8 +32,9 @@ public abstract class AbstractRecyclerViewAdapter<T, H extends RecyclerView.View
 
     final public void setList(List<T> list) {
         items.clear();
+        notifyDataSetChanged();
         items.addAll(list);
-        notifyItemRangeChanged(0, list.size());
+        notifyItemRangeInserted(0, list.size());
     }
 
     @Override

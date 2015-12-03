@@ -2,7 +2,6 @@ package com.morcinek.showcase.general;
 
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -88,6 +87,13 @@ public abstract class AbstractListFragment<T extends Parcelable> extends Toolbar
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(listAdapter);
+        recyclerView.setLayoutAnimation(new LayoutAnimationController(createLayoutAnimation()));
+    }
+
+    private Animation createLayoutAnimation() {
+        Animation fadeInAnimation = AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_in_left);
+        fadeInAnimation.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
+        return fadeInAnimation;
     }
 
     private void setupSwipeRefreshLayout(View view) {
@@ -99,13 +105,7 @@ public abstract class AbstractListFragment<T extends Parcelable> extends Toolbar
     @Override
     public void success(List<T> object) {
         listAdapter.setList(object);
-        invokeRecyclerViewAnimation();
-    }
-
-    private void invokeRecyclerViewAnimation() {
-        Animation fadeInAnimation = AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_in_left);
-        fadeInAnimation.setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
-        recyclerView.setLayoutAnimation(new LayoutAnimationController(fadeInAnimation));
+        recyclerView.startLayoutAnimation();
     }
 
     @Override
