@@ -7,7 +7,7 @@
     android:background="@drawable/footer_item_background">
 
     <ImageView
-        android:src="@drawable/ic_action_about"
+        android:src="@drawable/ic_info_black"
         android:layout_width="@dimen/drawer_list_image_height"
         android:layout_height="@dimen/drawer_list_image_height"
         android:scaleType="centerInside"

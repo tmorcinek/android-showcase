@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="@dimen/drawer_list_image_height"
-        android:layout_height="@dimen/drawer_list_image_height"
+        android:layout_width="@dimen/contact_list_image_height"
+        android:layout_height="@dimen/contact_list_image_height"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/horizontal_margin"
         android:layout_marginStart="@dimen/horizontal_margin"
@@ -20,8 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/contact_list_item_height"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/drawer_list_item_text_margin"
-        android:layout_marginStart="@dimen/drawer_list_item_text_margin"
+        android:layout_marginLeft="@dimen/contact_list_item_text_margin"
+        android:layout_marginStart="@dimen/contact_list_item_text_margin"
         android:gravity="center_vertical"
         android:orientation="vertical">
 

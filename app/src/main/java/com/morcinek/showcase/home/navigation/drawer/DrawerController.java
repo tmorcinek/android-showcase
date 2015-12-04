@@ -57,12 +57,12 @@ public class DrawerController implements AdapterView.OnItemClickListener, View.O
 
     private List<DrawerItem> prepareDrawerItemList() {
         ArrayList<DrawerItem> drawerItems = new ArrayList<>();
-        drawerItems.add(new DrawerItem(R.string.author_title, R.drawable.ic_action_person, new AuthorFragment()));
-        drawerItems.add(new DrawerItem(R.string.location_title, R.drawable.ic_action_place, new LocationFragment()));
-        drawerItems.add(new DrawerItem(R.string.education_list_title, R.drawable.ic_action_storage, new EducationListFragment()));
-        drawerItems.add(new DrawerItem(R.string.experience_list_title, R.drawable.ic_action_cloud, new ExperienceListFragment()));
-        drawerItems.add(new DrawerItem(R.string.skills_list_title, R.drawable.ic_action_important, new SkillsListFragment()));
-        drawerItems.add(new DrawerItem(R.string.contact_title, R.drawable.ic_action_send_now, new ContactListFragment()));
+        drawerItems.add(new DrawerItem(R.string.author_title, R.drawable.ic_account_circle_black, new AuthorFragment()));
+        drawerItems.add(new DrawerItem(R.string.location_title, R.drawable.ic_room_black, new LocationFragment()));
+        drawerItems.add(new DrawerItem(R.string.education_list_title, R.drawable.ic_school_black, new EducationListFragment()));
+        drawerItems.add(new DrawerItem(R.string.experience_list_title, R.drawable.ic_local_library_black, new ExperienceListFragment()));
+        drawerItems.add(new DrawerItem(R.string.skills_list_title, R.drawable.ic_stars_black, new SkillsListFragment()));
+        drawerItems.add(new DrawerItem(R.string.contact_title, R.drawable.ic_contact_calendar_black, new ContactListFragment()));
         return drawerItems;
     }
 
