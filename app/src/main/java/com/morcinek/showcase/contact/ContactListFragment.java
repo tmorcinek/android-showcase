@@ -6,13 +6,15 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
+import android.view.ViewGroup;
 
 import com.morcinek.showcase.R;
 import com.morcinek.showcase.contact.model.Contact;
 import com.morcinek.showcase.general.AbstractListFragment;
 import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
 import com.morcinek.showcase.general.network.requesters.ContactsRequester;
+import com.nispok.snackbar.Snackbar;
+import com.nispok.snackbar.SnackbarManager;
 
 import javax.inject.Inject;
 
@@ -56,12 +58,6 @@ public class ContactListFragment extends AbstractListFragment<Contact> {
             case Email:
                 invokeEmail(contact);
                 break;
-            case Skype:
-                invokeSkype(contact);
-                break;
-            case Line:
-                invokeLine(contact);
-                break;
             case Play:
                 invokePlay(contact);
                 break;
@@ -69,6 +65,12 @@ public class ContactListFragment extends AbstractListFragment<Contact> {
             case Github:
             case Linkedin:
                 invokeWebsite(contact);
+                break;
+            case Skype:
+                invokeSkype(contact);
+                break;
+            case Line:
+                invokeLine(contact);
                 break;
         }
     }
@@ -83,29 +85,45 @@ public class ContactListFragment extends AbstractListFragment<Contact> {
         startActivity(emailIntent);
     }
 
-    private void invokeSkype(Contact contact) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setClassName("com.skype.raider", "com.skype.raider.Main");
-        intent.setData(Uri.parse(String.format("skype:%s?chat", contact.getContent())));
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-    }
-
-    private void invokeLine(Contact contact) {
-        clipboardManager.setPrimaryClip(ClipData.newPlainText("LineId", contact.getContent()));
-        Toast.makeText(getActivity(), R.string.action_line_message, Toast.LENGTH_LONG).show();
-    }
-
-    private void invokeWebsite(Contact contact) {
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(contact.getContent())));
-    }
-
     private void invokePlay(Contact contact) {
         try {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://search?q=pub:Tomasz Morcinek")));
         } catch (android.content.ActivityNotFoundException e) {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(contact.getContent())));
         }
+    }
+
+    private void invokeWebsite(Contact contact) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(contact.getContent())));
+    }
+
+    private void invokeSkype(Contact contact) {
+        if (isApplicationInstalled("com.skype.raider")) {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setClassName("com.skype.raider", "com.skype.raider.Main");
+            intent.setData(Uri.parse(String.format("skype:%s?chat", contact.getContent())));
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        } else {
+            invokeClipboardAction(contact, "SkypeId");
+        }
+    }
+
+    private void invokeLine(Contact contact) {
+        invokeClipboardAction(contact, "LineId");
+    }
+
+    private void invokeClipboardAction(Contact contact, String name) {
+        clipboardManager.setPrimaryClip(ClipData.newPlainText(name, contact.getContent()));
+        showSnackbarMessage(name);
+    }
+
+    private void showSnackbarMessage(String name) {
+        SnackbarManager.show(
+                Snackbar.with(getActivity())
+                        .text(getString(R.string.action_copy_message, name))
+                        .duration(Snackbar.SnackbarDuration.LENGTH_SHORT)
+                , (ViewGroup) getView());
     }
 
     private boolean isApplicationInstalled(String appPackage) {
