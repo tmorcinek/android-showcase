@@ -1,6 +1,8 @@
 package com.morcinek.showcase.home.navigation.drawer;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
@@ -18,9 +20,12 @@ import com.morcinek.showcase.contact.ContactListFragment;
 import com.morcinek.showcase.education.EducationListFragment;
 import com.morcinek.showcase.experience.ExperienceListFragment;
 import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
+import com.morcinek.showcase.general.recycler.DividerItemDecoration;
 import com.morcinek.showcase.home.HomeContentController;
 import com.morcinek.showcase.home.navigation.drawer.footer.DrawerFooterAdapter;
 import com.morcinek.showcase.home.navigation.drawer.footer.DrawerFooterItem;
+import com.morcinek.showcase.home.navigation.drawer.list.DrawerItem;
+import com.morcinek.showcase.home.navigation.drawer.list.DrawerListAdapter;
 import com.morcinek.showcase.location.LocationFragment;
 import com.morcinek.showcase.skills.SkillsListFragment;
 
@@ -34,8 +39,9 @@ public class DrawerController implements AdapterView.OnItemClickListener, Abstra
 
     private static final int HIDE_DRAWER_LIST_DELAY_MILLIS = 150;
 
-    private FragmentActivity activity;
+    private final FragmentActivity activity;
     private final HomeContentController homeContentController;
+
     private final DrawerLayout drawerLayout;
 
     private final ListView drawerListView;
@@ -49,15 +55,16 @@ public class DrawerController implements AdapterView.OnItemClickListener, Abstra
         drawerContent = activity.findViewById(R.id.drawer_content);
         drawerListView = (ListView) drawerContent.findViewById(R.id.drawer_list);
 
-        setupRecyclerView(activity);
         setupDrawerListAdapter(activity);
+        setupFooterLayout(activity);
     }
 
-    private void setupRecyclerView(FragmentActivity activity) {
-        RecyclerView recyclerView = (RecyclerView) activity.findViewById(R.id.drawer_menu);
+    private void setupFooterLayout(FragmentActivity activity) {
+        RecyclerView recyclerView = (RecyclerView) activity.findViewById(R.id.drawer_footer);
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(createSportMenuAdapter(activity));
+        recyclerView.addItemDecoration(new DividerItemDecoration(activity));
     }
 
     private DrawerFooterAdapter createSportMenuAdapter(Activity activity) {
@@ -122,16 +129,35 @@ public class DrawerController implements AdapterView.OnItemClickListener, Abstra
     public void onItemClicked(DrawerFooterItem item) {
         switch (item.getTitle()) {
             case R.string.rate_title:
+                invokeRateAction();
                 break;
             case R.string.check_code_title:
+                invokeCodeAction();
                 break;
             case R.string.libraries_title:
-                new LibsBuilder().
-                        withFields(R.string.class.getFields())
-                        .withActivityTheme(R.style.BaseTheme)
-                        .withActivityTitle(activity.getString(R.string.libraries_title))
-                        .start(activity);
+                invokeLibrariesAction();
                 break;
         }
+    }
+
+    private void invokeRateAction() {
+        final String appPackageName = activity.getPackageName();
+        try {
+            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+        } catch (android.content.ActivityNotFoundException exception) {
+            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
+        }
+    }
+
+    private void invokeCodeAction() {
+        activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/tmorcinek/android-showcase/")));
+    }
+
+    private void invokeLibrariesAction() {
+        new LibsBuilder().
+                withFields(R.string.class.getFields())
+                .withActivityTheme(R.style.BaseTheme)
+                .withActivityTitle(activity.getString(R.string.libraries_title))
+                .start(activity);
     }
 }

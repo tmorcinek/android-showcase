@@ -1,4 +1,4 @@
-package com.morcinek.showcase.home.navigation.drawer;
+package com.morcinek.showcase.home.navigation.drawer.list;
 
 import android.content.Context;
 import android.view.View;

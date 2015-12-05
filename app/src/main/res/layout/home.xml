@@ -47,9 +47,9 @@
                     android:dividerHeight="0dp" />
 
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/drawer_menu"
+                    android:id="@+id/drawer_footer"
                     android:layout_width="match_parent"
-                    android:layout_height="144dp"
+                    android:layout_height="145dp"
                     android:background="@color/drawer_footer"
                     android:overScrollMode="never" />
             </LinearLayout>

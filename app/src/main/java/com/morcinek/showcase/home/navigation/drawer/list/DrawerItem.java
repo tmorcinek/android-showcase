@@ -1,4 +1,4 @@
-package com.morcinek.showcase.home.navigation.drawer;
+package com.morcinek.showcase.home.navigation.drawer.list;
 
 
 import android.support.v4.app.Fragment;
