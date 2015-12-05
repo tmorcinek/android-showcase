@@ -24,9 +24,4 @@ public class DrawerItem {
         this.icon = icon;
         this.fragment = fragment;
     }
-
-    public DrawerItem(int title, Fragment fragment) {
-        this.title = title;
-        this.fragment = fragment;
-    }
 }

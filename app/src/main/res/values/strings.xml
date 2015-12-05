@@ -34,9 +34,11 @@
     <string name="refresh_action">Refresh</string>
     <string name="see_example">See Example</string>
 
-    <string name="libraries_text">Open Source Libraries</string>
+    <string name="libraries_title">Open Source Libraries</string>
 
     <string name="action_mail_subject">Showcase Application Query</string>
     <string name="action_play_title">Developed Applications</string>
     <string name="action_copy_message">%s added to clipboard</string>
+    <string name="rate_title">Rate Application</string>
+    <string name="check_code_title">Check Application Code</string>
 </resources>

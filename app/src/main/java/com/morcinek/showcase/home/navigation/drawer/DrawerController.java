@@ -1,8 +1,12 @@
 package com.morcinek.showcase.home.navigation.drawer;
 
+import android.app.Activity;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -13,7 +17,10 @@ import com.morcinek.showcase.author.AuthorFragment;
 import com.morcinek.showcase.contact.ContactListFragment;
 import com.morcinek.showcase.education.EducationListFragment;
 import com.morcinek.showcase.experience.ExperienceListFragment;
+import com.morcinek.showcase.general.adapter.AbstractRecyclerViewAdapter;
 import com.morcinek.showcase.home.HomeContentController;
+import com.morcinek.showcase.home.navigation.drawer.footer.DrawerFooterAdapter;
+import com.morcinek.showcase.home.navigation.drawer.footer.DrawerFooterItem;
 import com.morcinek.showcase.location.LocationFragment;
 import com.morcinek.showcase.skills.SkillsListFragment;
 
@@ -23,29 +30,49 @@ import java.util.List;
 /**
  * Copyright 2014 Tomasz Morcinek. All rights reserved.
  */
-public class DrawerController implements AdapterView.OnItemClickListener, View.OnClickListener {
+public class DrawerController implements AdapterView.OnItemClickListener, AbstractRecyclerViewAdapter.OnItemClickListener<DrawerFooterItem> {
 
-    public static final int HIDE_DRAWER_LIST_DELAY_MILLIS = 150;
+    private static final int HIDE_DRAWER_LIST_DELAY_MILLIS = 150;
 
-
+    private FragmentActivity activity;
     private final HomeContentController homeContentController;
     private final DrawerLayout drawerLayout;
 
     private final ListView drawerListView;
     private final View drawerContent;
-    private final LibsBuilder libsBuilder;
 
     public DrawerController(FragmentActivity activity, HomeContentController homeContentController, DrawerLayout drawerLayout) {
+        this.activity = activity;
         this.homeContentController = homeContentController;
         this.drawerLayout = drawerLayout;
 
         drawerContent = activity.findViewById(R.id.drawer_content);
         drawerListView = (ListView) drawerContent.findViewById(R.id.drawer_list);
 
-        libsBuilder = new LibsBuilder().withFields(R.string.class.getFields()).withActivityTheme(R.style.BaseTheme).withActivityTitle(activity.getString(R.string.libraries_text));
-
+        setupRecyclerView(activity);
         setupDrawerListAdapter(activity);
-        setupDrawerFooter();
+    }
+
+    private void setupRecyclerView(FragmentActivity activity) {
+        RecyclerView recyclerView = (RecyclerView) activity.findViewById(R.id.drawer_menu);
+        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(createSportMenuAdapter(activity));
+    }
+
+    private DrawerFooterAdapter createSportMenuAdapter(Activity activity) {
+        DrawerFooterAdapter sportMenuAdapter = new DrawerFooterAdapter(activity);
+        sportMenuAdapter.setItemClickListener(this);
+        sportMenuAdapter.setList(prepareMenuDrawerItems());
+        return sportMenuAdapter;
+    }
+
+    private List<DrawerFooterItem> prepareMenuDrawerItems() {
+        ArrayList<DrawerFooterItem> drawerItems = new ArrayList<>();
+        drawerItems.add(new DrawerFooterItem(R.string.rate_title, R.drawable.ic_star_black));
+        drawerItems.add(new DrawerFooterItem(R.string.check_code_title, R.drawable.ic_description_black));
+        drawerItems.add(new DrawerFooterItem(R.string.libraries_title, R.drawable.ic_info_black));
+        return drawerItems;
     }
 
     private void setupDrawerListAdapter(FragmentActivity activity) {
@@ -91,12 +118,20 @@ public class DrawerController implements AdapterView.OnItemClickListener, View.O
         selectItemAtPosition((DrawerItem) drawerListView.getItemAtPosition(0), 0);
     }
 
-    private void setupDrawerFooter() {
-        drawerContent.findViewById(R.id.drawer_footer).setOnClickListener(this);
-    }
-
     @Override
-    public void onClick(View v) {
-        libsBuilder.start(v.getContext());
+    public void onItemClicked(DrawerFooterItem item) {
+        switch (item.getTitle()) {
+            case R.string.rate_title:
+                break;
+            case R.string.check_code_title:
+                break;
+            case R.string.libraries_title:
+                new LibsBuilder().
+                        withFields(R.string.class.getFields())
+                        .withActivityTheme(R.style.BaseTheme)
+                        .withActivityTitle(activity.getString(R.string.libraries_title))
+                        .start(activity);
+                break;
+        }
     }
 }
