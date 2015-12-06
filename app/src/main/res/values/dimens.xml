@@ -19,6 +19,8 @@
 
     <dimen name="drawer_margin">-8dp</dimen>
 
+    <dimen name="drawer_footer_height">146dp</dimen>
+
     <dimen name="drawer_list_item_height">48dp</dimen>
     <dimen name="drawer_list_image_height">24dp</dimen>
     <dimen name="drawer_list_item_text_margin">56dp</dimen>
@@ -29,5 +31,4 @@
     <dimen name="contact_list_item_text_margin">72dp</dimen>
     <dimen name="contact_list_title_text_size">17sp</dimen>
     <dimen name="contact_list_subtitle_text_size">11sp</dimen>
-
 </resources>
