@@ -1,3 +1,9 @@
+<a href="https://play.google.com/store/apps/details?id=com.morcinek.showcase">
+  <img alt="BetterPickers Samples on Google Play"
+         src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" width="140" />
+</a>
+
+
 Android Showcase
 ================
 
